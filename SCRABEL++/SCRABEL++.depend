@@ -1,0 +1,30 @@
+# depslib dependency file v1.0
+1585157777 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_score.cpp
+	"Lista_score.h"
+
+1585157777 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_score.h
+
+1585152691 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
+	<iostream>
+	<string.h>
+	<iostream>
+	<Lista_diccionario.h>
+	<Nodo_palabra.h>
+
+1585159444 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_diccionario.h
+	<Nodo_palabra.h>
+	<string.h>
+	<iostream>
+
+1585158212 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\nodo_palabra.h
+	<string.h>
+	<iostream>
+
+1585105177 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_palabra.cpp
+	"Nodo_palabra.h"
+
+1585157742 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_score.cpp
+	"Nodo_score.h"
+
+1585157741 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\nodo_score.h
+

@@ -1,0 +1,67 @@
+{
+	"dimension": 20,
+	"casillas": {
+		"dobles":[
+			{
+				"x":2,
+				"y":5
+			},
+			{
+				"x":4,
+				"y":10
+			},
+			{
+				"x":10,
+				"y":15
+			},
+			{
+				"x":1,
+				"y":1
+			}
+		],
+		"triples":[
+			{
+				"x":0,
+				"y":1
+			},
+			{
+				"x":6,
+				"y":10
+			},
+			{
+				"x":0,
+				"y":15
+			},
+			{
+				"x":19,
+				"y":19
+			}
+		]
+	},
+	"diccionario": [
+		{
+			"palabra": "hola"
+		},
+		{
+			"palabra": "mundo"
+		},
+		{
+			"palabra": "proyecto"
+		},
+		{
+			"palabra": "diccionario"
+		},
+		{
+			"palabra": "daniel"
+		},
+		{
+			"palabra": "de"
+		},
+		{
+			"palabra": "estructura"
+		},
+		{
+			"palabra": "datos"
+		}
+	]
+}

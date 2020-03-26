@@ -1,0 +1,24 @@
+digraph G {
+	# page = "8.2677165,11.692913" ;
+	ratio = "auto" ;
+	mincross = 2.0 ;
+	label = "Lista doble enlazada circular" ;
+	rankdir=LR;
+
+	node [
+	fontsize = "16"
+	shape = "ellipse"
+
+	];
+
+
+	"palabra1" -> "palabra2"  ;
+	"palabra1" -> "palabra3" ;
+
+	"palabra2" -> "palabra3" ;
+	"palabra2" -> "palabra1";
+
+	"palabra3" -> "palabra1"  ;
+	"palabra3" -> "palabra2" ;
+
+}
