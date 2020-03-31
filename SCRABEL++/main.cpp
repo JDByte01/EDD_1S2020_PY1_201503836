@@ -7,6 +7,8 @@
 #include <Nodo_palabra.h>
 #include <Archivo.h>
 
+#include <Lista_puntajes.h>
+
 using namespace std;
 
 bool flag = true;
@@ -19,6 +21,8 @@ Lista_diccionario* diccionario;
 
 Archivo* f = new Archivo();
 
+
+
 void configuracion(){
     cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
     cout << "\t|%%%%%%%%%%| Configuracion |%%%%%%%%%%|" << endl;
@@ -29,7 +33,8 @@ void configuracion(){
     cin >> ruta;
 
     cout << "\t| Ruta ingresada: " << ruta << endl;
-    //Leer archivo
+    //Leer archivo JSON
+    //Insertar datos en lista doble diccionario
     diccionario = new Lista_diccionario();
     diccionario->insertar(new Nodo_palabra("Hola"));
     diccionario->insertar(new Nodo_palabra("Mundo"));
@@ -47,23 +52,35 @@ void configuracion(){
     f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
     f->crearGrafo("ListaDobleCircular", defaultPath);
     system("pause");
+    cout << "Regresando a menu" << endl;
 }
 
 void juego(){
     cout << "\t| Jugar" << endl;
-    cin.get(c);
+
+    Lista_puntajes* tmp = new Lista_puntajes();
+    tmp->insertar(10);
+    tmp->insertar(8);
+    tmp->insertar(12);
+    tmp->insertar(5);
+    tmp->insertar(20);
+
+    tmp->imprimirLista();
+    cout << tmp->getGraphviz("daniel") << endl;
+    system("pause");
 }
 
 void reportes(){
     cout << "\t| Reportes" << endl;
-    cin.get(c);
+
+    system("pause");
 }
 //=======================================================
 //=======================================================
 int main()
 {
     do{
-        //system("cls");
+        system("cls");
         cin.clear();
         cout << "" << endl;
         cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;

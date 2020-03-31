@@ -4,13 +4,14 @@
 
 1585157777 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_score.h
 
-1585629463 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
+1585671498 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
 	<iostream>
 	<string.h>
 	<iostream>
 	<Lista_diccionario.h>
 	<Nodo_palabra.h>
 	<Archivo.h>
+	<Lista_puntajes.h>
 
 1585623376 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_diccionario.h
 	<Nodo_palabra.h>
@@ -29,13 +30,28 @@
 
 1585157741 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\nodo_score.h
 
-1585627603 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_diccionario.cpp
+1585645367 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_diccionario.cpp
 	"Lista_diccionario.h"
 
-1585628769 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\archivo.cpp
+1585629645 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\archivo.cpp
 	"Archivo.h"
 
 1585629305 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\archivo.h
 	<iostream>
 	<fstream>
+
+1585648237 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_puntajes.cpp
+	"Nodo_puntajes.h"
+
+1585647492 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\nodo_puntajes.h
+	<string.h>
+	<iostream>
+
+1585646738 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_puntajes.h
+	<Nodo_puntajes.h>
+	<string.h>
+	<iostream>
+
+1585648337 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_puntajes.cpp
+	"Lista_puntajes.h"
 

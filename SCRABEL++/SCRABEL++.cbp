@@ -36,14 +36,18 @@
 		</Compiler>
 		<Unit filename="include/Archivo.h" />
 		<Unit filename="include/Lista_diccionario.h" />
+		<Unit filename="include/Lista_puntajes.h" />
 		<Unit filename="include/Lista_score.h" />
 		<Unit filename="include/Nodo_palabra.h" />
+		<Unit filename="include/Nodo_puntajes.h" />
 		<Unit filename="include/Nodo_score.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Archivo.cpp" />
 		<Unit filename="src/Lista_diccionario.cpp" />
+		<Unit filename="src/Lista_puntajes.cpp" />
 		<Unit filename="src/Lista_score.cpp" />
 		<Unit filename="src/Nodo_palabra.cpp" />
+		<Unit filename="src/Nodo_puntajes.cpp" />
 		<Unit filename="src/Nodo_score.cpp" />
 		<Extensions>
 			<code_completion />

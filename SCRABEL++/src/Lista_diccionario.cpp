@@ -53,7 +53,7 @@ void Lista_diccionario::eliminar(Nodo_palabra* n){
         } else {
             //Eliminar en cualquier parte
             temp = this->inicio;
-            while(temp->getSiguiente() != this->inicio || temp->getPalabra() != n->getPalabra()){
+            while(temp->getSiguiente() != this->inicio && temp->getPalabra() != n->getPalabra()){
                 temp = temp->getSiguiente();
             }
             //Evaluar palabra
@@ -97,11 +97,11 @@ void Lista_diccionario::imprimirBackward(){
 
 string Lista_diccionario::getGraphviz(){
     //Generar Graphviz
-    string g_nombre = "Diccionario de palabras\nLista doble enlazada circular";
+    string g_nombre = "\"Diccionario de palabras - Lista doble enlazada circular\"";
 
     string graphIn = "digraph G {\n";
-    string g_init = "ratio = \"auto\";\n mincross = 2.0;\nlabel = " + g_nombre + "; \nrankdir=LR;\n";
-    string g_node = "node [fontsize = \"16\", shape = \"ellipse\"];\n";
+    string g_init = "ratio = \"auto\";\n layout = \"circo\";\nlabel = " + g_nombre + "; \nrankdir=LR;\n";
+    string g_node = "node [shape = doublecircle]; \"" + this->inicio->getPalabra() + "\";\nnode [fontsize = 12, shape = rect];\n";
 
     string g_nodes = "";
 
@@ -110,7 +110,7 @@ string Lista_diccionario::getGraphviz(){
         g_nodes += tmp->getGraphviz();
         tmp = tmp->getSiguiente();
     }
-
+    g_nodes += tmp->getGraphviz();
 
     return graphIn + g_init + g_node + g_nodes + "}";
 }
