@@ -18,7 +18,9 @@ class Lista_diccionario
         void insertar(Nodo_palabra *n);
         void eliminar(Nodo_palabra *n);
         bool estaVacio();
-        void imprimir(string dir);
+        void imprimirForward();
+        void imprimirBackward();
+        void vaciarLista();
         string getGraphviz();
 
     protected:

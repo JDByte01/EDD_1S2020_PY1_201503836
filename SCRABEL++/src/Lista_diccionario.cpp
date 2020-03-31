@@ -3,13 +3,11 @@
 Lista_diccionario::Lista_diccionario()
 {
     this->inicio = NULL;
-    this->inicio->setSiguiente(NULL);
-    this->inicio->setAnterior(NULL);
 }
 
 Lista_diccionario::~Lista_diccionario()
 {
-    //dtor
+    delete this->inicio;
 }
 
 //==========================================
@@ -50,10 +48,74 @@ void Lista_diccionario::eliminar(Nodo_palabra* n){
             this->inicio->setAnterior(temp->getAnterior());
             temp->getAnterior()->setSiguiente(this->inicio);
 
+            delete temp;
+
         } else {
             //Eliminar en cualquier parte
+            temp = this->inicio;
+            while(temp->getSiguiente() != this->inicio || temp->getPalabra() != n->getPalabra()){
+                temp = temp->getSiguiente();
+            }
+            //Evaluar palabra
+            if(temp->getPalabra() == n->getPalabra()){
+                //Es igual
+                temp->getAnterior()->setSiguiente(temp->getSiguiente());
+                temp->getSiguiente()->setAnterior(temp->getAnterior());
 
+                delete temp;
+            } else {
+                //No existe la palabra a eliminar
+                cout << " | ** Error: \n |  - No existe el dato a eliminar" << endl;
+            }
         }
     }
+}
+
+void Lista_diccionario::imprimirForward(){
+    if(!estaVacio()){
+        Nodo_palabra* tmp = this->inicio;
+        cout << "\t|";
+        while(tmp->getSiguiente() != this->inicio){
+            cout << tmp->imprimir();
+            tmp = tmp->getSiguiente();
+        }
+        cout << tmp->imprimir() << endl;
+    }
+}
+
+void Lista_diccionario::imprimirBackward(){
+    if(!estaVacio()){
+        Nodo_palabra* tmp = this->inicio->getAnterior();
+        cout << "\t|";
+        while(tmp != this->inicio){
+            cout << tmp->imprimir();
+            tmp = tmp->getAnterior();
+        }
+        cout << tmp->imprimir() << endl;
+    }
+}
+
+string Lista_diccionario::getGraphviz(){
+    //Generar Graphviz
+    string g_nombre = "Diccionario de palabras\nLista doble enlazada circular";
+
+    string graphIn = "digraph G {\n";
+    string g_init = "ratio = \"auto\";\n mincross = 2.0;\nlabel = " + g_nombre + "; \nrankdir=LR;\n";
+    string g_node = "node [fontsize = \"16\", shape = \"ellipse\"];\n";
+
+    string g_nodes = "";
+
+    Nodo_palabra* tmp = this->inicio;
+    while(tmp->getSiguiente() != this->inicio){
+        g_nodes += tmp->getGraphviz();
+        tmp = tmp->getSiguiente();
+    }
+
+
+    return graphIn + g_init + g_node + g_nodes + "}";
+}
+
+void Lista_diccionario::vaciarLista(){
+    delete this->inicio;
 }
 

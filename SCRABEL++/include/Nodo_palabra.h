@@ -19,7 +19,7 @@ class Nodo_palabra
         Nodo_palabra *getSiguiente(){ return this->siguiente; }
         Nodo_palabra *getAnterior(){ return this->anterior; }
 
-        void imprimir();
+        string imprimir();
         string getGraphviz();
 
     protected:

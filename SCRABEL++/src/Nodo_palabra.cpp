@@ -18,8 +18,8 @@ Nodo_palabra::Nodo_palabra(string p){
     this->anterior = NULL;
 }
 
-void Nodo_palabra::imprimir(){
-    cout << "\t|-> [" << this->palabra << "] " << endl;
+string Nodo_palabra::imprimir(){
+    return "-> [" + this->palabra + "]";
 }
 
 string Nodo_palabra::getGraphviz(){
