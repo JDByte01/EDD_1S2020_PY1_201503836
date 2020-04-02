@@ -8,6 +8,7 @@
 #include <Archivo.h>
 
 #include <Lista_puntajes.h>
+#include <Lista_score.h>
 
 #include <Arbol_usuarios.h>
 #include <Nodo_usuario.h>
@@ -26,6 +27,7 @@ string defaultPath = "C:\\KByteGt\\usac-ecys";
 int dimension_tablero = 0;
 Lista_diccionario* diccionario;
 Arbol_usuarios* usuarios;
+Lista_score* scoreboard;
 
 Nodo_usuario* jugador1 = NULL;
 Nodo_usuario* jugador2 = NULL;
@@ -111,12 +113,8 @@ void reportes(){
     cout << "\t| Reportes" << endl;
 
     usuarios = new Arbol_usuarios();
-
-    //usuarios->insertar("Joseph");
-    //usuarios->insertar("Ricardo");
-    //usuarios->insertar("Marvin");
-    //usuarios->insertar("Chris");
-    //usuarios->insertar("Daniel");
+    scoreboard = new Lista_score();
+    Nodo_usuario* tmp_u;
 
     usuarios->insertar("Daniel");
     usuarios->insertar("Joseph");
@@ -124,37 +122,67 @@ void reportes(){
     usuarios->insertar("Marvin");
     usuarios->insertar("Chris");
 
-    usuarios->insertar("Heidy");
-    usuarios->insertar("Carlos");
-    usuarios->insertar("Rodrigo");
-    usuarios->insertar("Antonio");
-    usuarios->insertar("Eduardo");
+    //usuarios->insertar("Heidy");
+    //usuarios->insertar("Carlos");
+    //usuarios->insertar("Rodrigo");
+    //usuarios->insertar("Antonio");
+    //usuarios->insertar("Eduardo");
 
 
-    Nodo_usuario* tmp_u = usuarios->buscar("Ricardo");
+    tmp_u = usuarios->buscar("Ricardo");
 
     if(tmp_u != NULL){
         //tmp_u->setLista(tmp);
         jugador1 = tmp_u;
-        jugador1->ingresarPunteo(350);
         jugador1->ingresarPunteo(10);
         jugador1->ingresarPunteo(2);
         jugador1->ingresarPunteo(0);
         jugador1->ingresarPunteo(5);
-        jugador1->ingresarPunteo(25);
+
         tmp_u->getLista()->imprimirLista();
-        cout <<" ** Punteo maximo: " << tmp_u->getPunteoMaximo() << endl;
-    } else {
-        cout << " No se encontro el usuario Ricardo" << endl;
+
     }
+
+    tmp_u = usuarios->buscar("Joseph");
+    if(tmp_u != NULL){
+        tmp_u->ingresarPunteo(50);
+    }
+
+    tmp_u = usuarios->buscar("Marvin");
+    if(tmp_u != NULL){
+        tmp_u->ingresarPunteo(24);
+    }
+
+    tmp_u = usuarios->buscar("Chris");
+    if(tmp_u != NULL){
+        tmp_u->ingresarPunteo(12);
+    }
+
+    tmp_u = usuarios->buscar("Daniepp");
+    if(tmp_u != NULL){
+        tmp_u->ingresarPunteo(5);
+    }
+
+    jugador1->ingresarPunteo(25);
+    jugador1->getLista()->imprimirLista();
+
+    usuarios->getScoreBoard(scoreboard);
+    scoreboard->imprimirLista();
+    cout << scoreboard->getGraphviz() << endl;
+
+    //scoreboard->insertar("Daniel", 50);
+    //scoreboard->insertar("Genesis", 20);
+    //scoreboard->insertar("kbyteGt", 70);
+    //scoreboard->imprimirLista();
+    //cout << scoreboard->getGraphviz() << endl;
 
 
     //usuarios->imprimir();
 
     //cout << usuarios->getGraphviz("Tree") << endl;
-    cout << usuarios->getGraphviz("PreOrder") << endl;
-    cout << usuarios->getGraphviz("InOrder") << endl;
-    cout << usuarios->getGraphviz("PosOrder") << endl;
+    //cout << usuarios->getGraphviz("PreOrder") << endl;
+    //cout << usuarios->getGraphviz("InOrder") << endl;
+    //cout << usuarios->getGraphviz("PosOrder") << endl;
     //tmp->imprimirLista();
     //cout << tmp->getGraphviz("daniel") << endl;
 

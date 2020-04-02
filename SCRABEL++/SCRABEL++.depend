@@ -1,10 +1,13 @@
 # depslib dependency file v1.0
-1585157777 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_score.cpp
+1585832576 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_score.cpp
 	"Lista_score.h"
 
-1585157777 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_score.h
+1585828917 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_score.h
+	<Nodo_score.h>
+	<string.h>
+	<iostream>
 
-1585827196 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
+1585833521 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
 	<iostream>
 	<string.h>
 	<iostream>
@@ -12,6 +15,7 @@
 	<Nodo_palabra.h>
 	<Archivo.h>
 	<Lista_puntajes.h>
+	<Lista_score.h>
 	<Arbol_usuarios.h>
 	<Nodo_usuario.h>
 
@@ -27,10 +31,10 @@
 1585626858 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_palabra.cpp
 	"Nodo_palabra.h"
 
-1585157742 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_score.cpp
+1585832896 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_score.cpp
 	"Nodo_score.h"
 
-1585827221 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\nodo_score.h
+1585829594 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\nodo_score.h
 	<string.h>
 	<iostream>
 
@@ -59,8 +63,9 @@
 1585706605 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_puntajes.cpp
 	"Lista_puntajes.h"
 
-1585826695 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\arbol_usuarios.h
+1585832007 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\arbol_usuarios.h
 	<Nodo_usuario.h>
+	<Lista_score.h>
 	<string.h>
 	<iostream>
 	<cstring>
@@ -73,6 +78,6 @@
 1585808307 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_usuario.cpp
 	"Nodo_usuario.h"
 
-1585826724 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\arbol_usuarios.cpp
+1585832207 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\arbol_usuarios.cpp
 	"Arbol_usuarios.h"
 

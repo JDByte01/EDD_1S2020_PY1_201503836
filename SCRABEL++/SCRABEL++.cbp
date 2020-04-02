@@ -34,6 +34,7 @@
 			<Add option="-Wall" />
 			<Add option="-fexceptions" />
 		</Compiler>
+		<Unit filename="include/Arbol_usuarios.h" />
 		<Unit filename="include/Archivo.h" />
 		<Unit filename="include/Lista_diccionario.h" />
 		<Unit filename="include/Lista_puntajes.h" />
@@ -43,6 +44,7 @@
 		<Unit filename="include/Nodo_score.h" />
 		<Unit filename="include/Nodo_usuario.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="src/Arbol_usuarios.cpp" />
 		<Unit filename="src/Archivo.cpp" />
 		<Unit filename="src/Lista_diccionario.cpp" />
 		<Unit filename="src/Lista_puntajes.cpp" />

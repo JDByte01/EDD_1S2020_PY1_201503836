@@ -2,6 +2,7 @@
 #define ARBOL_USUARIOS_H
 
 #include <Nodo_usuario.h>
+#include <Lista_score.h>
 #include <string.h>
 #include <iostream>
 #include <cstring>
@@ -35,12 +36,15 @@ class Arbol_usuarios
         string posOrder(Nodo_usuario* n, string txt);
         string tree(Nodo_usuario* n, string txt);
 
-        void getScoreBoard();
+        void getScoreBoard(Lista_score* l);
+        void scoreBoard_r(Nodo_usuario* n, Lista_score* l);
     protected:
 
     private:
         Nodo_usuario* raiz;
         Nodo_usuario* actual;
+
+        //Lista_score* score;
 };
 
 #endif // ARBOL_USUARIOS_H

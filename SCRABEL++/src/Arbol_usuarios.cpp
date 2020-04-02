@@ -4,12 +4,14 @@ Arbol_usuarios::Arbol_usuarios()
 {
     this->raiz = NULL;
     this->actual = NULL;
+    //this->score = NULL;
 }
 
 Arbol_usuarios::~Arbol_usuarios()
 {
     delete this->raiz;
     delete this->actual;
+    //delete this->score;
 }
 
 /**
@@ -20,6 +22,7 @@ void Arbol_usuarios::insertar(string usuario){
     if(estaVacio()){
         Nodo_usuario* n = new Nodo_usuario();
         n->setNickname(usuario);
+        n->ingresarPunteo(0);
         this->raiz = n;
     } else {
         insertar_r(usuario,this->raiz);
@@ -203,6 +206,28 @@ string Arbol_usuarios::tree(Nodo_usuario* n, string txt){
     return txt;
 }
 
-void Arbol_usuarios::getScoreBoard(){
 
+void Arbol_usuarios::getScoreBoard(Lista_score* l){
+
+    if(!estaVacio()){
+        scoreBoard_r(this->raiz, l);
+    } else {
+        cout << "\t| ERROR: Lista Scoreboard vacia" << endl;
+    }
+
+}
+
+void Arbol_usuarios::scoreBoard_r(Nodo_usuario* n, Lista_score* l){
+    if(n->getIzquierda() != NULL){
+        scoreBoard_r(n->getIzquierda(), l);
+    }
+    //Insertar en lista score
+    //scoreboard->insertar("Daniel", 50);
+
+    l->insertar(n->getNickname(),n->getPunteoMaximo());
+    //this->score->insertar(n->getNickname(),n->getPunteoMaximo());
+
+    if(n->getDerecha() != NULL){
+        scoreBoard_r(n->getDerecha(), l);
+    }
 }
