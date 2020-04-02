@@ -202,3 +202,7 @@ string Arbol_usuarios::tree(Nodo_usuario* n, string txt){
 
     return txt;
 }
+
+void Arbol_usuarios::getScoreBoard(){
+
+}

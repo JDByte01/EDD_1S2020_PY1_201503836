@@ -34,6 +34,8 @@ class Arbol_usuarios
         string preOrder(Nodo_usuario* n, string txt);
         string posOrder(Nodo_usuario* n, string txt);
         string tree(Nodo_usuario* n, string txt);
+
+        void getScoreBoard();
     protected:
 
     private:

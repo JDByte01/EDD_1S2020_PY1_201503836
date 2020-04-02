@@ -118,20 +118,11 @@ void reportes(){
     //usuarios->insertar("Chris");
     //usuarios->insertar("Daniel");
 
-    Lista_puntajes* tmp = new Lista_puntajes();
-    tmp->insertar(10);
-    tmp->insertar(2);
-    tmp->insertar(0);
-    tmp->insertar(5);
-    tmp->insertar(25);
-
-
-
-    //usuarios->insertar("Daniel");
-    //usuarios->insertar("Joseph");
-    //usuarios->insertar("Ricardo");
-    //usuarios->insertar("Marvin");
-    //usuarios->insertar("Chris");
+    usuarios->insertar("Daniel");
+    usuarios->insertar("Joseph");
+    usuarios->insertar("Ricardo");
+    usuarios->insertar("Marvin");
+    usuarios->insertar("Chris");
 
     usuarios->insertar("Heidy");
     usuarios->insertar("Carlos");
@@ -143,7 +134,14 @@ void reportes(){
     Nodo_usuario* tmp_u = usuarios->buscar("Ricardo");
 
     if(tmp_u != NULL){
-        tmp_u->setLista(tmp);
+        //tmp_u->setLista(tmp);
+        jugador1 = tmp_u;
+        jugador1->ingresarPunteo(350);
+        jugador1->ingresarPunteo(10);
+        jugador1->ingresarPunteo(2);
+        jugador1->ingresarPunteo(0);
+        jugador1->ingresarPunteo(5);
+        jugador1->ingresarPunteo(25);
         tmp_u->getLista()->imprimirLista();
         cout <<" ** Punteo maximo: " << tmp_u->getPunteoMaximo() << endl;
     } else {
