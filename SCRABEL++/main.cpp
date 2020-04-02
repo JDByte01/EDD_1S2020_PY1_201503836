@@ -9,20 +9,39 @@
 
 #include <Lista_puntajes.h>
 
+#include <Arbol_usuarios.h>
+#include <Nodo_usuario.h>
+
+
 using namespace std;
 
 bool flag = true;
+bool j_flag = true;
 char c;
+char j_c;
 string ruta = "";
 string defaultPath = "C:\\KByteGt\\usac-ecys";
 
+//Configuración
 int dimension_tablero = 0;
 Lista_diccionario* diccionario;
+Arbol_usuarios* usuarios;
+
+Nodo_usuario* jugador1 = NULL;
+Nodo_usuario* jugador2 = NULL;
 
 Archivo* f = new Archivo();
 
+//============================================
+void nuevoJugador(){
 
+}
 
+void escojerJugador(){
+
+}
+
+//============================================
 void configuracion(){
     cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
     cout << "\t|%%%%%%%%%%| Configuracion |%%%%%%%%%%|" << endl;
@@ -56,22 +75,90 @@ void configuracion(){
 }
 
 void juego(){
-    cout << "\t| Jugar" << endl;
+    do{
+        system("cls");
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%|     Juego     |%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%| 1 - Nuevo usuario             |%%|" << endl;
+        cout << "\t|%%| 2 - Escojer usuario           |%%|" << endl;
+        cout << "\t|%%| ----------------------------- |%%|" << endl;
+        cout << "\t|%%| 0 - Regresar a menu           |%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t| > ";
+        cin.get(j_c);
 
-    Lista_puntajes* tmp = new Lista_puntajes();
-    tmp->insertar(10);
-    tmp->insertar(8);
-    tmp->insertar(12);
-    tmp->insertar(5);
-    tmp->insertar(20);
+        switch(j_c){
+            case '1':
+                nuevoJugador();
+                break;
+            case '2':
+                escojerJugador();
+                break;
+            case '0':
+                j_flag = false;
+                break;
+            default:
+                break;
+        }
 
-    tmp->imprimirLista();
-    cout << tmp->getGraphviz("daniel") << endl;
+    } while(j_flag);
+
     system("pause");
 }
 
 void reportes(){
     cout << "\t| Reportes" << endl;
+
+    usuarios = new Arbol_usuarios();
+
+    //usuarios->insertar("Joseph");
+    //usuarios->insertar("Ricardo");
+    //usuarios->insertar("Marvin");
+    //usuarios->insertar("Chris");
+    //usuarios->insertar("Daniel");
+
+    Lista_puntajes* tmp = new Lista_puntajes();
+    tmp->insertar(10);
+    tmp->insertar(2);
+    tmp->insertar(0);
+    tmp->insertar(5);
+    tmp->insertar(25);
+
+
+
+    //usuarios->insertar("Daniel");
+    //usuarios->insertar("Joseph");
+    //usuarios->insertar("Ricardo");
+    //usuarios->insertar("Marvin");
+    //usuarios->insertar("Chris");
+
+    usuarios->insertar("Heidy");
+    usuarios->insertar("Carlos");
+    usuarios->insertar("Rodrigo");
+    usuarios->insertar("Antonio");
+    usuarios->insertar("Eduardo");
+
+
+    Nodo_usuario* tmp_u = usuarios->buscar("Ricardo");
+
+    if(tmp_u != NULL){
+        tmp_u->setLista(tmp);
+        tmp_u->getLista()->imprimirLista();
+        cout <<" ** Punteo maximo: " << tmp_u->getPunteoMaximo() << endl;
+    } else {
+        cout << " No se encontro el usuario Ricardo" << endl;
+    }
+
+
+    //usuarios->imprimir();
+
+    //cout << usuarios->getGraphviz("Tree") << endl;
+    cout << usuarios->getGraphviz("PreOrder") << endl;
+    cout << usuarios->getGraphviz("InOrder") << endl;
+    cout << usuarios->getGraphviz("PosOrder") << endl;
+    //tmp->imprimirLista();
+    //cout << tmp->getGraphviz("daniel") << endl;
 
     system("pause");
 }

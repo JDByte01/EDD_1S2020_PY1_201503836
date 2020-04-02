@@ -41,6 +41,7 @@
 		<Unit filename="include/Nodo_palabra.h" />
 		<Unit filename="include/Nodo_puntajes.h" />
 		<Unit filename="include/Nodo_score.h" />
+		<Unit filename="include/Nodo_usuario.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Archivo.cpp" />
 		<Unit filename="src/Lista_diccionario.cpp" />
@@ -49,6 +50,7 @@
 		<Unit filename="src/Nodo_palabra.cpp" />
 		<Unit filename="src/Nodo_puntajes.cpp" />
 		<Unit filename="src/Nodo_score.cpp" />
+		<Unit filename="src/Nodo_usuario.cpp" />
 		<Extensions>
 			<code_completion />
 			<envvars />

@@ -14,27 +14,39 @@ void Lista_puntajes::insertar(int x){
     //Insertar punteo en la lista ordenada
     Nodo_puntajes* nodo = new Nodo_puntajes();
     nodo->setPunteo(x);
+
+    Nodo_puntajes* actual = this->inicio;
+    Nodo_puntajes* anterior = NULL;
+    bool flag = true;
     if(estaVacio()){
         this->inicio = nodo;
     } else {
-        Nodo_puntajes* tmp = this->inicio;
-        Nodo_puntajes* n = NULL;
-        bool flag = true;
-        while(tmp->getSiguiente() != NULL && flag){
-            if(tmp->getPunteo() < x){
+        while(actual->getSiguiente() != NULL && flag){
+            if(actual->getPunteo() < x){
                 flag = false;
             } else {
-                n = tmp;
-                tmp = tmp->getSiguiente();
+                anterior = actual;
+                actual = actual->getSiguiente();
             }
         }
-        //Insertar dato
-        if( n == NULL){
-            nodo->setSiguiente(this->inicio);
-            this->inicio = nodo;
+
+
+        if(actual == this->inicio){
+            if(actual->getPunteo() < x){
+                nodo->setSiguiente(this->inicio);
+                this->inicio = nodo;
+            } else {
+                this->inicio->setSiguiente(nodo);
+            }
+
         } else {
-            nodo->setSiguiente(tmp);
-            n->setSiguiente(nodo);
+            if(flag){
+                actual->setSiguiente(nodo);
+
+            } else {
+                nodo->setSiguiente(actual);
+                anterior->setSiguiente(nodo);
+            }
         }
     }
 }
