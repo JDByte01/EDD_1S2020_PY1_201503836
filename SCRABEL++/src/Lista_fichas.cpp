@@ -58,6 +58,13 @@ void Lista_fichas::eliminar(Nodo_ficha* n){
     }
 }
 
+void Lista_fichas::vaciar(){
+    if(!estaVacio()){
+         delete this->inicio;
+        this->inicio = NULL;
+    }
+}
+
 void Lista_fichas::imprimir(){
     if(!estaVacio()){
         Nodo_ficha* temp = this->inicio;

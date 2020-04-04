@@ -90,7 +90,10 @@ Nodo_usuario* Arbol_usuarios::buscar_r(string x, Nodo_usuario* n){
 }
 
 bool Arbol_usuarios::existe(string usuario){
-    return buscar(usuario) != NULL;
+    if(!estaVacio()){
+        return buscar(usuario) != NULL;
+    }
+    return NULL;
 }
 
 /**
@@ -99,8 +102,9 @@ bool Arbol_usuarios::existe(string usuario){
 
 void Arbol_usuarios::imprimir(){
     if(!estaVacio()){
+        cout << "\n\t|%%|    ** Lista de usuarios **    |%%|" << endl;
         imprimir_r(this->raiz);
-        cout << " InOrder" << endl;
+
     } else {
         cout << "\t| ERROR: Arbol vacio para imprimir" << endl;
     }
@@ -112,7 +116,7 @@ void Arbol_usuarios::imprimir_r(Nodo_usuario* n){
         imprimir_r(n->getIzquierda());
     }
 
-    cout << n->imprimir();
+    cout << n->imprimir() << endl;
 
     if(n->getDerecha() != NULL){
         imprimir_r(n->getDerecha());

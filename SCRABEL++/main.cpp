@@ -24,8 +24,13 @@ using namespace std;
 bool flag = true;
 bool j_flag = true;
 bool r_flag = true;
+bool nj_flag = true;
+bool ej_flag = true;
+bool f_jugador1 = false;
+bool f_jugador2 = false;
 char c;
 char j_c;
+char op_c;
 string ruta = "";
 string defaultPath = "C:\\KByteGt\\usac-ecys";
 
@@ -41,8 +46,8 @@ Arbol_usuarios* usuarios;
 Lista_score* scoreboard;
 Cola_fichas* fichas;
 
-Nodo_usuario* jugador1 = NULL;
-int putnos_j1 = 0;
+Nodo_usuario* jugador1 = new Nodo_usuario();
+int puntos_j1 = 0;
 Lista_fichas* atril1 = NULL;
 Nodo_usuario* jugador2 = NULL;
 int puntos_j2 = 0;
@@ -109,20 +114,129 @@ void scrabble() {
     atril2->insertar(fichas->desencolar());
 }
 void nuevoJugador(){
+    string temporal = "";
+    do{
+        system("cls");
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%| Nuevo usuario |%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%| 0 - Regresar a menu juego     |%%|" << endl;
+        cout << "\t|%%| ----------------------------- |%%|" << endl;
+        cout << "\t|%%| Nickname mayor a 3 caracteres |%%|" << endl;
+        cout << "\t|%%| * - Ingresar el Nickname      |%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t| > ";
+        cin >> temporal;
 
+        switch(temporal.size()){
+            case 1:
+                if(temporal == "0")
+                    nj_flag = false;
 
-    fichas->imprimir();
+                break;
+            default:
+                /**Validar nickname**/
+                if(temporal.size() >= 3){
+                     if(!usuarios->existe(temporal)){
+                        ///Insertar nickname
+                        usuarios->insertar(temporal);
+                    } else {
+                        cout << "\t| ERROR:\n\tYa existe el Nickname" << endl;
+                    }
+                } else {
+                    cout << "\t| ERROR:\n\tNickname invalido" << endl;
+                }
+                break;
+        }
 
-
-
-    atril1->imprimir();
-
-    atril2->imprimir();
-    system("pause");
+    } while(nj_flag);
 }
 
 void escojerJugador(){
+    string temporal = "";
+    do{
+        system("cls");
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%| Escoger usuario |%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        if(!f_jugador1){
+            cout << "\t|%%| 1 - Jugador 1 **              |%%|" << endl;
+        } else {
+            cout << "\t|%%| 1 - Jugador 1                 |%%|" << endl;
+        }
 
+        if(!f_jugador2){
+            cout << "\t|%%| 2 - Jugador 2 **              |%%|" << endl;
+        } else {
+            cout << "\t|%%| 2 - Jugador 2                 |%%|" << endl;
+        }
+
+        cout << "\t|%%| ----------------------------- |%%|" << endl;
+        cout << "\t|%%| 0 - Regresar a menu juego     |%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        if(jugador1 != NULL && f_jugador1){
+             cout << "\t| > J1 - " << jugador1->getNickname() << endl;
+        }
+        if(jugador2 != NULL && f_jugador2){
+             cout << "\t| > J2 - " << jugador2->getNickname() << endl;
+        }
+
+        cout << "\t| > ";
+        cin.get(op_c);
+
+        switch(op_c){
+            case '0':
+                ej_flag = false;
+                break;
+            case '1':
+                /**Escoger nickname para jugador 1**/
+
+                if(!usuarios->estaVacio()){
+                    usuarios->imprimir();
+                    cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                    cout << "\t|%%|  Escribir Nickname a escoger  |%%|" << endl;
+                    cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                    cout << "\t| > ";
+                    cin >> temporal;
+                    if(jugador2->getNickname() == temporal){
+                        cout << "\t| - Nickname no disponible" << endl;
+                        system("pause");
+                    } else {
+                        jugador1 = usuarios->buscar(temporal);
+                        f_jugador1 = true;
+                    }
+                } else {
+                    cout << "\n\t|%%| *No hay usuarios disponibles* |%%|" << endl;
+                    system("pause");
+                }
+                break;
+            case '2':
+                /**Escoger nickname para jugador 2**/
+                if(!usuarios->estaVacio()){
+                    usuarios->imprimir();
+                    cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                    cout << "\t|%%|  Escribir Nickname a escoger  |%%|" << endl;
+                    cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                    cout << "\t| > ";
+                    cin >> temporal;
+                    if(jugador1->getNickname() == temporal){
+                        cout << "\t| - Nick name no disponible" << endl;
+                        system("pause");
+                    } else {
+                        jugador2 = usuarios->buscar(temporal);
+                        f_jugador2 = true;
+                    }
+                } else {
+                    cout << "\n\t|%%| *No hay usuarios disponibles* |%%|" << endl;
+                    system("pause");
+                }
+                break;
+            default:
+
+                break;
+        }
+
+    } while(ej_flag);
 }
 
 //============================================
@@ -146,12 +260,52 @@ void configuracion(){
     diccionario->insertar(new Nodo_palabra("de"));
     diccionario->insertar(new Nodo_palabra("la"));
     diccionario->insertar(new Nodo_palabra("programacion"));
+    diccionario->insertar(new Nodo_palabra("estructuras"));
+    diccionario->insertar(new Nodo_palabra("cola"));
+    diccionario->insertar(new Nodo_palabra("pila"));
+    diccionario->insertar(new Nodo_palabra("enero"));
+    diccionario->insertar(new Nodo_palabra("febrero"));
+    diccionario->insertar(new Nodo_palabra("marzo"));
+    diccionario->insertar(new Nodo_palabra("abril"));
+    diccionario->insertar(new Nodo_palabra("mayo"));
+    diccionario->insertar(new Nodo_palabra("junio"));
+    diccionario->insertar(new Nodo_palabra("julio"));
+    diccionario->insertar(new Nodo_palabra("agosto"));
+    diccionario->insertar(new Nodo_palabra("septiembre"));
+    diccionario->insertar(new Nodo_palabra("octubre"));
+    diccionario->insertar(new Nodo_palabra("noviembre"));
+    diccionario->insertar(new Nodo_palabra("diciembre"));
+    diccionario->insertar(new Nodo_palabra("zanahoria"));
+    diccionario->insertar(new Nodo_palabra("zapato"));
+    diccionario->insertar(new Nodo_palabra("caña"));
 
     cout << "\t| Datos ingresados correctamente" << endl;
     system("pause");
 }
 
 void juego(){
+    /**
+     ** Nuevo juego
+     ** Se reinician variables
+     **/
+     if(jugador1 == NULL){
+        jugador1 = new Nodo_usuario();
+        atril1 = new Lista_fichas();
+
+     }
+     if(jugador2 == NULL){
+        jugador2 = new Nodo_usuario();
+        atril2 = new Lista_fichas();
+
+     }
+
+     f_jugador1 = false;
+     f_jugador2 = false;
+     puntos_j1 = 0;
+     puntos_j2 = 0;
+     atril1->vaciar();
+     atril2->vaciar();
+
     do{
         system("cls");
         cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
@@ -167,9 +321,11 @@ void juego(){
 
         switch(j_c){
             case '1':
+                nj_flag = true;
                 nuevoJugador();
                 break;
             case '2':
+                ej_flag = true;
                 escojerJugador();
                 break;
             case '0':
@@ -180,8 +336,6 @@ void juego(){
         }
 
     } while(j_flag);
-
-    system("pause");
 }
 
 void reportes(){
@@ -267,17 +421,17 @@ void reportes(){
         }
 
     } while(r_flag);
-
-    system("pause");
 }
 //=======================================================
 //=======================================================
 int main()
 {
     diccionario = new Lista_diccionario();
+    usuarios = new Arbol_usuarios();
     fichas = new Cola_fichas();
     atril1 = new Lista_fichas();
     atril2 = new Lista_fichas();
+
     do{
         system("cls");
         cin.clear();
@@ -287,7 +441,7 @@ int main()
         cout << "\t|%%%%%%%%%%%| SCRABBLE ++ |%%%%%%%%%%%|" << endl;
         cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
         cout << "\t|%%%%%%%%| 1)  Configuracion |%%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%%| 2)  Jugar         |%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%| 2)  Nuevo juego   |%%%%%%%%|" << endl;
         cout << "\t|%%%%%%%%| 3)  Reportes      |%%%%%%%%|" << endl;
         cout << "\t|%%%%%%%%| 4)  Salir         |%%%%%%%%|" << endl;
         cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
@@ -397,6 +551,11 @@ usuarios = new Arbol_usuarios();
     //cout << usuarios->getGraphviz("PosOrder") << endl;
     //tmp->imprimirLista();
     //cout << tmp->getGraphviz("daniel") << endl;
+
+
+    fichas->imprimir();
+    atril1->imprimir();
+    atril2->imprimir();
 **/
 
 

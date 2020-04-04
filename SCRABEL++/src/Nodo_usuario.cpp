@@ -36,7 +36,7 @@ void Nodo_usuario::ingresarPunteo(int x){
 }
 
 string Nodo_usuario::imprimir(){
-     return "-> [" + this->nickname + "]";
+     return "\t| -> [" + this->nickname + "]";
 }
 
 string Nodo_usuario::getGraphviz(){

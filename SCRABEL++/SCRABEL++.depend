@@ -7,7 +7,7 @@
 	<string.h>
 	<iostream>
 
-1586000642 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
+1586036088 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
 	<iostream>
 	<string.h>
 	<iostream>
@@ -79,16 +79,16 @@
 	<string.h>
 	<iostream>
 
-1585808307 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_usuario.cpp
+1586034303 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_usuario.cpp
 	"Nodo_usuario.h"
 
-1585834270 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\arbol_usuarios.cpp
+1586036031 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\arbol_usuarios.cpp
 	"Arbol_usuarios.h"
 
-1585980365 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_fichas.cpp
+1586035173 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_fichas.cpp
 	"Lista_fichas.h"
 
-1585980364 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_fichas.h
+1586034947 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_fichas.h
 	<string.h>
 	<iostream>
 	<Nodo_ficha.h>
