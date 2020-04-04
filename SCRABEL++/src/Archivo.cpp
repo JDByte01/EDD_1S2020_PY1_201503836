@@ -22,3 +22,7 @@ void Archivo::crearArchivo(string nombre, string ext ,string ruta, string txt){
 void Archivo::crearGrafo(string nombre, string ruta){
 system(("dot -Tpng " + ruta + "\\" + nombre + ".dot -o " + ruta + "\\" + nombre + ".png").c_str());
 }
+
+void Archivo::abrirArchivo(string nombre, string ruta){
+    system((ruta+"\\"+ nombre).c_str());
+}

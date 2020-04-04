@@ -23,6 +23,7 @@ class Nodo_ficha
         Nodo_ficha* getSiguiente(){ return this->siguiente; }
         Nodo_ficha* getAnterior(){ return this->anterior; }
         //Otros
+        string getGraphviz(int x);
 
     protected:
 

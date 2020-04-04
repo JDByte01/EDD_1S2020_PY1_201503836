@@ -14,6 +14,7 @@ class Archivo
         void crearArchivo(string nombre, string ext, string ruta, string txt);
         void crearGrafo(string nombre, string ruta);
         string leerArchivo(string ruta);
+        void abrirArchivo(string nombre, string ruta);
 
     protected:
 

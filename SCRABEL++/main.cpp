@@ -23,6 +23,7 @@ using namespace std;
 
 bool flag = true;
 bool j_flag = true;
+bool r_flag = true;
 char c;
 char j_c;
 string ruta = "";
@@ -88,13 +89,35 @@ void llenarCola(){
     cout << "\t| Cola de fichas llena." << endl;
 }
 //============================================
+void scrabble() {
+    llenarCola();
+    /** Llenar atriles primeras 7 letras**/
+    atril1->insertar(fichas->desencolar());
+    atril1->insertar(fichas->desencolar());
+    atril1->insertar(fichas->desencolar());
+    atril1->insertar(fichas->desencolar());
+    atril1->insertar(fichas->desencolar());
+    atril1->insertar(fichas->desencolar());
+    atril1->insertar(fichas->desencolar());
+
+    atril2->insertar(fichas->desencolar());
+    atril2->insertar(fichas->desencolar());
+    atril2->insertar(fichas->desencolar());
+    atril2->insertar(fichas->desencolar());
+    atril2->insertar(fichas->desencolar());
+    atril2->insertar(fichas->desencolar());
+    atril2->insertar(fichas->desencolar());
+}
 void nuevoJugador(){
 
-    llenarCola();
+
     fichas->imprimir();
 
-    cout << fichas->getGraphviz() << endl;
 
+
+    atril1->imprimir();
+
+    atril2->imprimir();
     system("pause");
 }
 
@@ -115,24 +138,17 @@ void configuracion(){
     cout << "\t| Ruta ingresada: " << ruta << endl;
     //Leer archivo JSON
     //Insertar datos en lista doble diccionario
-    diccionario = new Lista_diccionario();
+    diccionario->vaciarLista();
+    dimension_tablero = 20;
+
     diccionario->insertar(new Nodo_palabra("Hola"));
     diccionario->insertar(new Nodo_palabra("Mundo"));
     diccionario->insertar(new Nodo_palabra("de"));
     diccionario->insertar(new Nodo_palabra("la"));
     diccionario->insertar(new Nodo_palabra("programacion"));
-    diccionario->insertar(new Nodo_palabra("!"));
 
-    cout << "Backward" << endl;
-    diccionario->imprimirBackward();
-    cout << "Forward" << endl;
-    diccionario->imprimirForward();
-
-    //Crear reporte .dot
-    f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
-    f->crearGrafo("ListaDobleCircular", defaultPath);
+    cout << "\t| Datos ingresados correctamente" << endl;
     system("pause");
-    cout << "Regresando a menu" << endl;
 }
 
 void juego(){
@@ -169,9 +185,146 @@ void juego(){
 }
 
 void reportes(){
-    cout << "\t| Reportes" << endl;
+    do{
+        system("cls");
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%|      Reportes     |%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%| 01 - Diccionario              |%%|" << endl;
+        cout << "\t|%%| 02 - Fichas disponible        |%%|" << endl;
+        cout << "\t|%%| 03 - Arbol binario (ABB)      |%%|" << endl;
+        cout << "\t|%%| 04 - ABB - recorrido preorden |%%|" << endl;
+        cout << "\t|%%| 05 - ABB - recorrido inorden  |%%|" << endl;
+        cout << "\t|%%| 06 - ABB - recorrido postorden|%%|" << endl;
+        cout << "\t|%%| 07 - Historial de puntos (J)  |%%|" << endl;
+        cout << "\t|%%| 08 - Scoreboard               |%%|" << endl;
+        cout << "\t|%%| 09 - Fichas disponible (J1)   |%%|" << endl;
+        cout << "\t|%%| 10 - Fichas disponible (J2)   |%%|" << endl;
+        cout << "\t|%%| ----------------------------- |%%|" << endl;
+        cout << "\t|%%| 0 - Regresar a menu           |%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t| > ";
+        cin.get(j_c);
 
-    usuarios = new Arbol_usuarios();
+        switch(j_c){
+            case '1':
+                /**DICCIONARIO**/
+                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
+                f->crearGrafo("ListaDobleCircular", defaultPath);
+                f->abrirArchivo("ListaDobleCircular.png", defaultPath);
+
+                break;
+            case '2':
+                /**COLA DE FICHAS**/
+                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
+                f->crearGrafo("ListaDobleCircular", defaultPath);
+                break;
+            case '3':
+                /**ARBOL BINARIO DE BUSQUEDA**/
+                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
+                f->crearGrafo("ListaDobleCircular", defaultPath);
+                break;
+            case '4':
+                /**ABB - PREORDEN**/
+                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
+                f->crearGrafo("ListaDobleCircular", defaultPath);
+                break;
+            case '5':
+                /**ABB - INORDEN**/
+                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
+                f->crearGrafo("ListaDobleCircular", defaultPath);
+                break;
+            case '6':
+                /**ABB - POSTORDEN**/
+                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
+                f->crearGrafo("ListaDobleCircular", defaultPath);
+                break;
+            case '7':
+                /**HISTORIAL DE PUNTOS X JUGADOR**/
+                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
+                f->crearGrafo("ListaDobleCircular", defaultPath);
+                break;
+            case '8':
+                /**SCOREBOARD**/
+                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
+                f->crearGrafo("ListaDobleCircular", defaultPath);
+                break;
+            case '9':
+                /**FICHAS DISPONIBLE J1**/
+                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
+                f->crearGrafo("ListaDobleCircular", defaultPath);
+                break;
+            case '10':
+                /**FICHAS DISPONIBLES J2**/
+                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
+                f->crearGrafo("ListaDobleCircular", defaultPath);
+                break;
+            case '0':
+                r_flag = false;
+                break;
+            default:
+                break;
+        }
+
+    } while(r_flag);
+
+    system("pause");
+}
+//=======================================================
+//=======================================================
+int main()
+{
+    diccionario = new Lista_diccionario();
+    fichas = new Cola_fichas();
+    atril1 = new Lista_fichas();
+    atril2 = new Lista_fichas();
+    do{
+        system("cls");
+        cin.clear();
+        cout << "" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%| SCRABBLE ++ |%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%| 1)  Configuracion |%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%| 2)  Jugar         |%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%| 3)  Reportes      |%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%| 4)  Salir         |%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%|  Escoja una opcion  |%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t| > ";
+        cin.get(c);
+
+        switch(c){
+            case '1':
+                configuracion();
+                break;
+            case '2':
+                j_flag = true;
+                juego();
+                break;
+            case '3':
+                r_flag = true;
+                reportes();
+                break;
+            case '4':
+                flag = false;
+                cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                cout << "\t|%%%%%%| **Gracias por jugar** |%%%%%%|" << endl;
+                cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                break;
+            default:
+               break;
+        }
+    } while(flag);
+
+    return 0;
+}
+
+/**
+usuarios = new Arbol_usuarios();
     scoreboard = new Lista_score();
     Nodo_usuario* tmp_u;
 
@@ -244,57 +397,7 @@ void reportes(){
     //cout << usuarios->getGraphviz("PosOrder") << endl;
     //tmp->imprimirLista();
     //cout << tmp->getGraphviz("daniel") << endl;
-
-    system("pause");
-}
-//=======================================================
-//=======================================================
-int main()
-{
-    fichas = new Cola_fichas();
-    do{
-        system("cls");
-        cin.clear();
-        cout << "" << endl;
-        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%%%%%| SCRABBLE ++ |%%%%%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%%| 1)  Configuracion |%%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%%| 2)  Jugar         |%%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%%| 3)  Reportes      |%%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%%| 4)  Salir         |%%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%|  Escoja una opcion  |%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-        cout << "\t| > ";
-        cin.get(c);
-
-        switch(c){
-            case '1':
-                configuracion();
-                break;
-            case '2':
-                juego();
-                break;
-            case '3':
-                reportes();
-                break;
-            case '4':
-                flag = false;
-                cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-                cout << "\t|%%%%%%| **Gracias por jugar** |%%%%%%|" << endl;
-                cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-                break;
-            default:
-               break;
-        }
-    } while(flag);
-
-    return 0;
-}
-
+**/
 
 
 

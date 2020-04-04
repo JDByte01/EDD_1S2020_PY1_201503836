@@ -13,8 +13,15 @@ class Lista_fichas
         Lista_fichas();
         virtual ~Lista_fichas();
 
-    protected:
+        //Otros
+        void insertar(Nodo_ficha* n);
+        void eliminar(Nodo_ficha* n);
+        bool estaVacio(){ return this->inicio == NULL; }
+        void imprimir();
+        string getGraphviz(string nombre);
 
+    protected:
+        Nodo_ficha* inicio;
     private:
 };
 

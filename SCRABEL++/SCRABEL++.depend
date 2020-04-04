@@ -7,7 +7,7 @@
 	<string.h>
 	<iostream>
 
-1585966505 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
+1586000642 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
 	<iostream>
 	<string.h>
 	<iostream>
@@ -45,10 +45,10 @@
 1585645367 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_diccionario.cpp
 	"Lista_diccionario.h"
 
-1585629645 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\archivo.cpp
+1586000223 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\archivo.cpp
 	"Archivo.h"
 
-1585629305 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\archivo.h
+1586000073 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\archivo.h
 	<iostream>
 	<fstream>
 
@@ -85,19 +85,19 @@
 1585834270 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\arbol_usuarios.cpp
 	"Arbol_usuarios.h"
 
-1585957824 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_fichas.cpp
+1585980365 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_fichas.cpp
 	"Lista_fichas.h"
 
-1585959612 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_fichas.h
+1585980364 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_fichas.h
 	<string.h>
 	<iostream>
 	<Nodo_ficha.h>
 
-1585959601 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\nodo_ficha.h
+1585979819 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\nodo_ficha.h
 	<string.h>
 	<iostream>
 
-1585961510 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_ficha.cpp
+1585980313 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_ficha.cpp
 	"Nodo_ficha.h"
 
 1585967296 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\cola_fichas.cpp
