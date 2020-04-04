@@ -1,0 +1,99 @@
+digraph Sparce_Matrix {
+
+    node [shape=box]
+
+    /* add group 1 for vertical alignment */
+    Mt[ label = "SCRABBLE++", width = 1.5, style = filled, group = 0 ];
+
+    X8 [label = "8"   width = 1 style = filled, group = 8 ];
+    X9 [label = "9"  width = 1 style = filled, group = 9 ];
+    X10 [label = "10"      width = 1 style = filled, group = 10 ];
+    X20 [label = "20"      width = 1 style = filled, group = 20 ];
+    { rank = same; Mt; X8; X9; X10; X20;}
+
+    Y4  [label = "4"   pos = "5.3,3.5!" width = 1.5 style = filled, group = 1 ];
+    N104 [label = "H" width = 1, group = 10 ];
+    { rank = same; Y4; N104;}
+        
+        
+    Y5  [label = "5"   width = 1.5 style = filled, group = 0 ];
+    N85 [label = "O" width = 1, group = 8 ];
+    N95 [label = "S" width = 1, group = 9 ];
+    N105 [label = "O" width = 1, group = 10 ];
+    { rank = same; Y5; N85; N95; N105;}
+     
+    Y6  [label = "6"   width = 1.5 style = filled, group = 0 ];
+    N106 [label = "L" width = 1, group = 10 ];
+    { rank = same; Y6; N106;}
+    
+    Y7  [label = "7"   width = 1.5 style = filled, group = 0 ];
+    N107 [label = "A" width = 1, group = 10 ];
+    { rank = same; Y7; N107;}
+    
+    Y20 [label = "20"  width = 1.5 style = filled, group = 0 ];
+    N2020 [label = "D" width = 1, group = 20 ];
+    { rank = same; Y20; N2020;}
+    
+    //------ links
+    Mt -> X8;
+    
+    X8 -> Mt;
+    X8 -> N85;
+    N85 -> X8;
+    X8 -> X9;
+    
+    
+    X9 -> X8;
+    X9 -> N95;
+    N95 -> X9;
+    X9 -> X10;
+    
+    
+    X10 ->X9;
+    X10 -> N104;
+    N104 -> X10;
+    N104 -> N105;
+    N105 -> N104;
+    N105 -> N106;
+    N106 -> N105;
+    N106 -> N107;
+    N107 -> N106;
+    X10 -> X20;
+    
+    
+    X20 -> X10;
+    X20 -> N2020;
+    N2020 -> X20;
+    
+    
+    Mt -> Y4;
+   
+    Y4 -> Mt;
+    Y4 -> N104;
+    N104 -> Y4;
+    Y4 -> Y5;
+    
+    Y5 -> Y4;
+    Y5 -> N85;
+    N85 -> Y5;
+    N85 -> N95;
+    N95 -> N85;
+    N95 -> N105;
+    N105 -> N95
+    Y5 -> Y6;
+    
+    Y6 -> Y5;
+    Y6 -> N106;
+    N106 -> Y6;
+    Y6 -> Y7;
+    
+    Y7 -> Y6;
+    Y7 -> N107;
+    N107 -> Y7;
+    Y7 -> Y20;
+    
+    Y20 -> Y7;
+    Y20 -> N2020;
+    N2020 -> Y20;
+    
+}

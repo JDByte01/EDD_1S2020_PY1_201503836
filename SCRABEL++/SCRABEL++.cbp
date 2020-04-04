@@ -36,9 +36,12 @@
 		</Compiler>
 		<Unit filename="include/Arbol_usuarios.h" />
 		<Unit filename="include/Archivo.h" />
+		<Unit filename="include/Cola_fichas.h" />
 		<Unit filename="include/Lista_diccionario.h" />
+		<Unit filename="include/Lista_fichas.h" />
 		<Unit filename="include/Lista_puntajes.h" />
 		<Unit filename="include/Lista_score.h" />
+		<Unit filename="include/Nodo_ficha.h" />
 		<Unit filename="include/Nodo_palabra.h" />
 		<Unit filename="include/Nodo_puntajes.h" />
 		<Unit filename="include/Nodo_score.h" />
@@ -46,9 +49,12 @@
 		<Unit filename="main.cpp" />
 		<Unit filename="src/Arbol_usuarios.cpp" />
 		<Unit filename="src/Archivo.cpp" />
+		<Unit filename="src/Cola_fichas.cpp" />
 		<Unit filename="src/Lista_diccionario.cpp" />
+		<Unit filename="src/Lista_fichas.cpp" />
 		<Unit filename="src/Lista_puntajes.cpp" />
 		<Unit filename="src/Lista_score.cpp" />
+		<Unit filename="src/Nodo_ficha.cpp" />
 		<Unit filename="src/Nodo_palabra.cpp" />
 		<Unit filename="src/Nodo_puntajes.cpp" />
 		<Unit filename="src/Nodo_score.cpp" />

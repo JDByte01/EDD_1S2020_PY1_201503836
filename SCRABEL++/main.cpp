@@ -2,6 +2,7 @@
 
 #include <string.h>
 #include <iostream>
+#include <stdlib.h>
 
 #include <Lista_diccionario.h>
 #include <Nodo_palabra.h>
@@ -12,6 +13,10 @@
 
 #include <Arbol_usuarios.h>
 #include <Nodo_usuario.h>
+
+#include <Nodo_ficha.h>
+#include <Cola_fichas.h>
+#include <Lista_fichas.h>
 
 
 using namespace std;
@@ -24,19 +29,73 @@ string ruta = "";
 string defaultPath = "C:\\KByteGt\\usac-ecys";
 
 //Configuración
+char letrasAZ[] = {'A','B','C','D','E','F','G','H','I','J','K','L','M','N','Ñ','O','P','Q','R','S','T','U','V','W','X','Y','Z'};
+int puntosAZ[] = {1,3,3,2,1,4,2,4,1,8,0,1,3,1,8,1,3,5,1,1,1,1,4,0,8,4,10};
+int cantidadAZ[] = {12,2,4,5,12,1,2,2,6,1,0,4,2,5,1,9,2,1,5,6,4,5,1,0,1,1,1};
+int a_cantidad[27];
+
 int dimension_tablero = 0;
 Lista_diccionario* diccionario;
 Arbol_usuarios* usuarios;
 Lista_score* scoreboard;
+Cola_fichas* fichas;
 
 Nodo_usuario* jugador1 = NULL;
+int putnos_j1 = 0;
+Lista_fichas* atril1 = NULL;
 Nodo_usuario* jugador2 = NULL;
+int puntos_j2 = 0;
+Lista_fichas* atril2 = NULL;
 
 Archivo* f = new Archivo();
 
 //============================================
+int getRandom(){
+    int r = 0;
+    int a = rand() % 10 + 1;
+    int b = rand() % 10 + 1;
+    int c = rand() % 10;
+
+    r = a + b + c;
+    if (r > 26){
+        r = a + b;
+    }
+
+    return r;
+}
+
+void llenarCola(){
+    for(int ii = 0; ii < 26; ii++){
+        a_cantidad[ii] = cantidadAZ[ii];
+    }
+
+    fichas->vaciar();
+
+    int x = 0;
+    for(int i = 0; i < 222; i++){
+        x = getRandom();
+        if(a_cantidad[x] > 0){
+            fichas->encolar(new Nodo_ficha(puntosAZ[x], letrasAZ[x]));
+            a_cantidad[x]--;
+        } else {
+            x = getRandom();
+            if(a_cantidad[x] > 0){
+                fichas->encolar(new Nodo_ficha(puntosAZ[x], letrasAZ[x]));
+                a_cantidad[x]--;
+            }
+        }
+    }
+    cout << "\t| Cola de fichas llena." << endl;
+}
+//============================================
 void nuevoJugador(){
 
+    llenarCola();
+    fichas->imprimir();
+
+    cout << fichas->getGraphviz() << endl;
+
+    system("pause");
 }
 
 void escojerJugador(){
@@ -192,6 +251,7 @@ void reportes(){
 //=======================================================
 int main()
 {
+    fichas = new Cola_fichas();
     do{
         system("cls");
         cin.clear();

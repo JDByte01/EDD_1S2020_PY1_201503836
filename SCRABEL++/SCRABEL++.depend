@@ -7,10 +7,11 @@
 	<string.h>
 	<iostream>
 
-1585833521 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
+1585966505 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
 	<iostream>
 	<string.h>
 	<iostream>
+	<stdlib.h>
 	<Lista_diccionario.h>
 	<Nodo_palabra.h>
 	<Archivo.h>
@@ -18,6 +19,9 @@
 	<Lista_score.h>
 	<Arbol_usuarios.h>
 	<Nodo_usuario.h>
+	<Nodo_ficha.h>
+	<Cola_fichas.h>
+	<Lista_fichas.h>
 
 1585623376 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_diccionario.h
 	<Nodo_palabra.h>
@@ -78,6 +82,29 @@
 1585808307 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_usuario.cpp
 	"Nodo_usuario.h"
 
-1585832207 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\arbol_usuarios.cpp
+1585834270 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\arbol_usuarios.cpp
 	"Arbol_usuarios.h"
+
+1585957824 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_fichas.cpp
+	"Lista_fichas.h"
+
+1585959612 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_fichas.h
+	<string.h>
+	<iostream>
+	<Nodo_ficha.h>
+
+1585959601 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\nodo_ficha.h
+	<string.h>
+	<iostream>
+
+1585961510 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_ficha.cpp
+	"Nodo_ficha.h"
+
+1585967296 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\cola_fichas.cpp
+	"Cola_fichas.h"
+
+1585964765 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\cola_fichas.h
+	<string.h>
+	<iostream>
+	<Nodo_ficha.h>
 
