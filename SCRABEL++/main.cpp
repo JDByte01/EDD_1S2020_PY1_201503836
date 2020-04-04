@@ -28,6 +28,7 @@ bool nj_flag = true;
 bool ej_flag = true;
 bool f_jugador1 = false;
 bool f_jugador2 = false;
+bool f_play = false;
 char c;
 char j_c;
 char op_c;
@@ -112,6 +113,18 @@ void scrabble() {
     atril2->insertar(fichas->desencolar());
     atril2->insertar(fichas->desencolar());
     atril2->insertar(fichas->desencolar());
+
+    fichas->imprimir();
+    atril1->imprimir();
+    atril2->imprimir();
+
+    /**Termina Juego**/
+    f_jugador1 = false;
+    f_jugador2 = false;
+    ej_flag = false;
+    j_flag = false;
+    system("pause");
+
 }
 void nuevoJugador(){
     string temporal = "";
@@ -155,87 +168,95 @@ void nuevoJugador(){
 void escojerJugador(){
     string temporal = "";
     do{
-        system("cls");
-        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%%%| Escoger usuario |%%%%%%%%%|" << endl;
-        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-        if(!f_jugador1){
-            cout << "\t|%%| 1 - Jugador 1 **              |%%|" << endl;
+        if(f_jugador1 && f_jugador2){
+            /**Empezar a jugar**/
+            f_play = true;
+            scrabble();
         } else {
-            cout << "\t|%%| 1 - Jugador 1                 |%%|" << endl;
-        }
+            /**Solicitar usuarios para jugar**/
+            system("cls");
+            cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+            cout << "\t|%%%%%%%%%| Escoger usuario |%%%%%%%%%|" << endl;
+            cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+            if(!f_jugador1){
+                cout << "\t|%%| 1 - Jugador 1 **              |%%|" << endl;
+            } else {
+                cout << "\t|%%| 1 - Jugador 1                 |%%|" << endl;
+            }
 
-        if(!f_jugador2){
-            cout << "\t|%%| 2 - Jugador 2 **              |%%|" << endl;
-        } else {
-            cout << "\t|%%| 2 - Jugador 2                 |%%|" << endl;
-        }
+            if(!f_jugador2){
+                cout << "\t|%%| 2 - Jugador 2 **              |%%|" << endl;
+            } else {
+                cout << "\t|%%| 2 - Jugador 2                 |%%|" << endl;
+            }
 
-        cout << "\t|%%| ----------------------------- |%%|" << endl;
-        cout << "\t|%%| 0 - Regresar a menu juego     |%%|" << endl;
-        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-        if(jugador1 != NULL && f_jugador1){
-             cout << "\t| > J1 - " << jugador1->getNickname() << endl;
-        }
-        if(jugador2 != NULL && f_jugador2){
-             cout << "\t| > J2 - " << jugador2->getNickname() << endl;
-        }
+            cout << "\t|%%| ----------------------------- |%%|" << endl;
+            cout << "\t|%%| 0 - Regresar a menu juego     |%%|" << endl;
+            cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+            if(jugador1 != NULL && f_jugador1){
+                 cout << "\t| > J1 - " << jugador1->getNickname() << endl;
+            }
+            if(jugador2 != NULL && f_jugador2){
+                 cout << "\t| > J2 - " << jugador2->getNickname() << endl;
+            }
 
-        cout << "\t| > ";
-        cin.get(op_c);
+            cout << "\t| > ";
+            cin.get(op_c);
 
-        switch(op_c){
-            case '0':
-                ej_flag = false;
-                break;
-            case '1':
-                /**Escoger nickname para jugador 1**/
+            switch(op_c){
+                case '0':
+                    ej_flag = false;
+                    break;
+                case '1':
+                    /**Escoger nickname para jugador 1**/
 
-                if(!usuarios->estaVacio()){
-                    usuarios->imprimir();
-                    cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-                    cout << "\t|%%|  Escribir Nickname a escoger  |%%|" << endl;
-                    cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-                    cout << "\t| > ";
-                    cin >> temporal;
-                    if(jugador2->getNickname() == temporal){
-                        cout << "\t| - Nickname no disponible" << endl;
-                        system("pause");
+                    if(!usuarios->estaVacio()){
+                        usuarios->imprimir();
+                        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                        cout << "\t|%%|  Escribir Nickname a escoger  |%%|" << endl;
+                        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                        cout << "\t| > ";
+                        cin >> temporal;
+                        if(jugador2->getNickname() == temporal){
+                            cout << "\t| - Nickname no disponible" << endl;
+                            system("pause");
+                        } else {
+                            jugador1 = usuarios->buscar(temporal);
+                            f_jugador1 = true;
+                        }
                     } else {
-                        jugador1 = usuarios->buscar(temporal);
-                        f_jugador1 = true;
-                    }
-                } else {
-                    cout << "\n\t|%%| *No hay usuarios disponibles* |%%|" << endl;
-                    system("pause");
-                }
-                break;
-            case '2':
-                /**Escoger nickname para jugador 2**/
-                if(!usuarios->estaVacio()){
-                    usuarios->imprimir();
-                    cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-                    cout << "\t|%%|  Escribir Nickname a escoger  |%%|" << endl;
-                    cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-                    cout << "\t| > ";
-                    cin >> temporal;
-                    if(jugador1->getNickname() == temporal){
-                        cout << "\t| - Nick name no disponible" << endl;
+                        cout << "\n\t|%%| *No hay usuarios disponibles* |%%|" << endl;
+                        cout << "\n\t";
                         system("pause");
-                    } else {
-                        jugador2 = usuarios->buscar(temporal);
-                        f_jugador2 = true;
                     }
-                } else {
-                    cout << "\n\t|%%| *No hay usuarios disponibles* |%%|" << endl;
-                    system("pause");
-                }
-                break;
-            default:
+                    break;
+                case '2':
+                    /**Escoger nickname para jugador 2**/
+                    if(!usuarios->estaVacio()){
+                        usuarios->imprimir();
+                        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                        cout << "\t|%%|  Escribir Nickname a escoger  |%%|" << endl;
+                        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                        cout << "\t| > ";
+                        cin >> temporal;
+                        if(jugador1->getNickname() == temporal){
+                            cout << "\t| - Nick name no disponible" << endl;
+                            system("pause");
+                        } else {
+                            jugador2 = usuarios->buscar(temporal);
+                            f_jugador2 = true;
+                        }
+                    } else {
+                        cout << "\n\t|%%| *No hay usuarios disponibles* |%%|" << endl;
+                        cout << "\n\t";
+                        system("pause");
+                    }
+                    break;
+                default:
 
-                break;
+                    break;
+            }
         }
-
     } while(ej_flag);
 }
 
