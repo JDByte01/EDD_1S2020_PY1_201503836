@@ -11,7 +11,7 @@ digraph Sparce_Matrix {
     X20 [label = "20"      width = 1 style = filled, group = 20 ];
     { rank = same; Mt; X8; X9; X10; X20;}
 
-    Y4  [label = "4"   pos = "5.3,3.5!" width = 1.5 style = filled, group = 1 ];
+    Y4  [label = "4"  width = 1.5 style = filled, group = 1 ];
     N104 [label = "H" width = 1, group = 10 ];
     { rank = same; Y4; N104;}
         

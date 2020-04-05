@@ -7,6 +7,7 @@
 #include <Lista_diccionario.h>
 #include <Nodo_palabra.h>
 #include <Archivo.h>
+#include <Matriz_tablero.h>
 
 #include <Lista_puntajes.h>
 #include <Lista_score.h>
@@ -49,6 +50,7 @@ Lista_diccionario* diccionario;
 Arbol_usuarios* usuarios;
 Lista_score* scoreboard;
 Cola_fichas* fichas;
+Matriz_tablero* tablero;
 
 Nodo_usuario* jugador1 = new Nodo_usuario();
 int puntos_j1 = 0;
@@ -597,6 +599,29 @@ int main()
                break;
         }
     } while(flag);
+
+    /**Prueba de la matriz**/
+    tablero = new Matriz_tablero();
+    if(tablero->agregar(8,5,'O'))
+        cout << "\t| Agregado..." << endl;
+    if(tablero->agregar(9,5,'S'))
+        cout << "\t| Agregado..." << endl;
+    if(tablero->agregar(10,5,'O'))
+        cout << "\t| Agregado..." << endl;
+
+    if(tablero->agregar(10,4,'H'))
+        cout << "\t| Agregado..." << endl;
+    if(tablero->agregar(10,5,'O'))
+        cout << "\t| Agregado..." << endl;
+    if(tablero->agregar(10,6,'L'))
+        cout << "\t| Agregado..." << endl;
+    if(tablero->agregar(10,7,'A'))
+        cout << "\t| Agregado..." << endl;
+
+    if(tablero->agregar(10,7,'I'))
+        cout << "\t| Agregado..." << endl;
+
+    cout <<"\n" << tablero->getGraphviz() << endl;
 
     return 0;
 }

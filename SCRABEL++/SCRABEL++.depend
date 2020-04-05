@@ -7,7 +7,7 @@
 	<string.h>
 	<iostream>
 
-1586036088 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
+1586120686 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
 	<iostream>
 	<string.h>
 	<iostream>
@@ -15,6 +15,7 @@
 	<Lista_diccionario.h>
 	<Nodo_palabra.h>
 	<Archivo.h>
+	<Matriz_tablero.h>
 	<Lista_puntajes.h>
 	<Lista_score.h>
 	<Arbol_usuarios.h>
@@ -107,4 +108,20 @@
 	<string.h>
 	<iostream>
 	<Nodo_ficha.h>
+
+1586122687 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_matriz.cpp
+	"Nodo_matriz.h"
+
+1586066957 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\nodo_matriz.h
+	<string.h>
+	<iostream>
+	<stdlib.h>
+
+1586122704 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\matriz_tablero.cpp
+	"Matriz_tablero.h"
+
+1586115793 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\matriz_tablero.h
+	<string.h>
+	<iostream>
+	<Nodo_matriz.h>
 
