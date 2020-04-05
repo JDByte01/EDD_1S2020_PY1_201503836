@@ -19,6 +19,9 @@
 #include <Cola_fichas.h>
 #include <Lista_fichas.h>
 
+#include "rapidjson/document.h"
+
+using namespace rapidjson;
 
 using namespace std;
 
