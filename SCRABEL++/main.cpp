@@ -29,6 +29,9 @@ bool ej_flag = true;
 bool f_jugador1 = false;
 bool f_jugador2 = false;
 bool f_play = false;
+bool f_turno = false;
+bool f_pass1 = false;
+bool f_pass2 = false;
 char c;
 char j_c;
 char op_c;
@@ -96,7 +99,28 @@ void llenarCola(){
 }
 //============================================
 void scrabble() {
+    string palabra = "";
+    Nodo_ficha* temp;
     llenarCola();
+    f_pass1 = false;
+    f_pass2 = false;
+    /**Determinar jugador que empieza**/
+    temp = fichas->desencolar();
+    puntos_j1 = temp->getPuntos();
+    fichas->encolar(temp);
+
+    temp = fichas->desencolar();
+    puntos_j2 = temp->getPuntos();
+    fichas->encolar(temp);
+
+    temp = NULL;
+
+    if(puntos_j1 > puntos_j2){
+        f_turno = true;
+    }
+    puntos_j1 = 0;
+    puntos_j2 = 0;
+
     /** Llenar atriles primeras 7 letras**/
     atril1->insertar(fichas->desencolar());
     atril1->insertar(fichas->desencolar());
@@ -114,15 +138,102 @@ void scrabble() {
     atril2->insertar(fichas->desencolar());
     atril2->insertar(fichas->desencolar());
 
-    fichas->imprimir();
-    atril1->imprimir();
-    atril2->imprimir();
+    do{
+        system("cls");
+        cout << "\t_______________________________________________________________" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%|  |%%|    S C R A B B L E    |%%|  |%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%| |%%%%| |%%%| |%%%| |%%%| |%%| |%%%| |%%%| |%%%| |%%%| |%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%| ----------------------------------------------------- |%%|" << endl;
+        cout << "\t|%%| 0) Terminar juego  |1) Pasar turno |2) Cambiar fichas |%%|" << endl;
+        cout << "\t|%%| ----------------------------------------------------- |%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|\n" << endl;
+
+
+        if(f_turno){
+            cout << "\t|%%| > Turno de Jugador 1 - [" << jugador1->getNickname() << "] [" << to_string(puntos_j1) << "]" << endl;
+            atril1->imprimir();
+        } else {
+            cout << "\t|%%| > Turno de Jugador 2 - [" << jugador2->getNickname() << "] [" << to_string(puntos_j2) << "]" << endl;
+            atril2->imprimir();
+        }
+
+
+        cout << "\t|%%| > Palabra a formar:\n\t    ** La palabra tiene que formarse por las letras del atril **" << endl;
+        cout << "\t| > ";
+        cin >> palabra;
+
+        switch(palabra.size()){
+            case 1:
+                /**Validar comando**/
+                if(palabra == "0"){
+                    /**Terminar Juego**/
+                    f_play = false;
+                } else if(palabra == "1"){
+                    /**Pasar turno**/
+                    if(!f_turno){
+                        /**Jugador 1**/
+                        f_pass1 = !f_pass1;
+
+                    } else {
+                        /**Jugador 2**/
+                        f_pass2 = !f_pass2;
+                    }
+
+                } else if(palabra == "2"){
+                    /**Cambiar atril**/
+                    if(!f_turno){
+                        /**Jugador 1**/
+                    } else {
+                        /**Jugador 2**/
+                    }
+                }else {
+                    /**Comando no valido**/
+                }
+                break;
+            default:
+                /**Validar palabra**/
+                if(!f_turno){
+                    /**Jugador 1**/
+                } else {
+                    /**Jugador 2**/
+                }
+                break;
+        }
+        /**Validar doble Pass**/
+        if(f_pass1 && f_pass2){
+            f_play = false;
+        }
+        /**Cambiar de turno**/
+        f_turno = !f_turno;
+    } while(f_play);
+
+    cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+    cout << "\t|%%%%%%%%%%%%|  |%%|    Juego Terminado    |%%|  |%%%%%%%%%%%%|" << endl;
+    cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+
+    if(puntos_j1 > puntos_j2){
+        cout << "\t|%%%%%%%%%%%%|--|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|--|%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%|--|%%|   Ganador Jugador 1   |%%|--|%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%|--|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|--|%%%%%%%%%%%%|" << endl;
+    } else {
+        cout << "\t|%%%%%%%%%%%%|--|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|--|%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%|--|%%|   Ganador Jugador 2   |%%|--|%%%%%%%%%%%%|" << endl;
+        cout << "\t|%%%%%%%%%%%%|--|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|--|%%%%%%%%%%%%|" << endl;
+    }
+
+    cout << "\n\t|%%|--|%%|> RESULTADOS:" << endl;
+    cout << "\t|%%|--|%%|> " << jugador1->getNickname() << " - " << to_string(puntos_j1) << " pts" << endl;
+    cout << "\t|%%|--|%%|> " << jugador2->getNickname() << " - " << to_string(puntos_j2) << " pts" << endl;
 
     /**Termina Juego**/
     f_jugador1 = false;
     f_jugador2 = false;
     ej_flag = false;
     j_flag = false;
+
     system("pause");
 
 }
@@ -309,23 +420,15 @@ void juego(){
      ** Nuevo juego
      ** Se reinician variables
      **/
-     if(jugador1 == NULL){
-        jugador1 = new Nodo_usuario();
-        atril1 = new Lista_fichas();
-
-     }
-     if(jugador2 == NULL){
-        jugador2 = new Nodo_usuario();
-        atril2 = new Lista_fichas();
-
-     }
-
-     f_jugador1 = false;
-     f_jugador2 = false;
-     puntos_j1 = 0;
-     puntos_j2 = 0;
-     atril1->vaciar();
-     atril2->vaciar();
+    fichas->vaciar();
+    jugador1 = new Nodo_usuario();
+    jugador2 = new Nodo_usuario();
+    f_jugador1 = false;
+    f_jugador2 = false;
+    puntos_j1 = 0;
+    puntos_j2 = 0;
+    atril1->vaciar();
+    atril2->vaciar();
 
     do{
         system("cls");

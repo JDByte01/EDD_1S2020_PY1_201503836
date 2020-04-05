@@ -68,7 +68,7 @@ void Lista_fichas::vaciar(){
 void Lista_fichas::imprimir(){
     if(!estaVacio()){
         Nodo_ficha* temp = this->inicio;
-        cout << "\t| Fichas en el atril: \n\t| ";
+        cout << "\t|%%| Atril > ";
         while(temp->getSiguiente() != NULL){
             cout << "[" << temp->getLetra() << "] ";
             temp = temp->getSiguiente();
