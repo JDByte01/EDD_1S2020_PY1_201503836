@@ -18,6 +18,7 @@ class Lista_fichas
         void eliminar(Nodo_ficha* n);
         Nodo_ficha* getInicio(){ return this->inicio; }
         bool estaVacio(){ return this->inicio == NULL; }
+        bool buscar(char l);
         void imprimir();
         void vaciar();
         string getGraphviz(string nombre);

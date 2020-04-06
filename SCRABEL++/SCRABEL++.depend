@@ -88,10 +88,10 @@
 1586036031 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\arbol_usuarios.cpp
 	"Arbol_usuarios.h"
 
-1586044655 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_fichas.cpp
+1586146260 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_fichas.cpp
 	"Lista_fichas.h"
 
-1586034947 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_fichas.h
+1586146257 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_fichas.h
 	<string.h>
 	<iostream>
 	<Nodo_ficha.h>
@@ -103,7 +103,7 @@
 1585980313 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_ficha.cpp
 	"Nodo_ficha.h"
 
-1585967296 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\cola_fichas.cpp
+1586147611 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\cola_fichas.cpp
 	"Cola_fichas.h"
 
 1585964765 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\cola_fichas.h
@@ -119,10 +119,10 @@
 	<iostream>
 	<stdlib.h>
 
-1586122704 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\matriz_tablero.cpp
+1586144891 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\matriz_tablero.cpp
 	"Matriz_tablero.h"
 
-1586115793 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\matriz_tablero.h
+1586144836 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\matriz_tablero.h
 	<string.h>
 	<iostream>
 	<Nodo_matriz.h>

@@ -107,11 +107,19 @@ void llenarCola(){
 }
 //============================================
 void scrabble() {
+    char tempPalabra[8];
     string palabra = "";
     Nodo_ficha* temp;
     llenarCola();
     f_pass1 = false;
     f_pass2 = false;
+
+    int fila = 0;
+    int columna = 0;
+    int posicion = 0;
+    int tempPuntos = 0;
+    bool f_palabra = true;
+
     /**Determinar jugador que empieza**/
     temp = fichas->desencolar();
     puntos_j1 = temp->getPuntos();
@@ -147,6 +155,10 @@ void scrabble() {
     atril2->insertar(fichas->desencolar());
 
     do{
+        for(int i = 0; i < 7; i++){
+            tempPalabra[i] = '0';
+        }
+
         system("cls");
         cout << "\t_______________________________________________________________" << endl;
         cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
@@ -183,16 +195,16 @@ void scrabble() {
                     /**Pasar turno**/
                     if(!f_turno){
                         /**Jugador 1**/
-                        f_pass1 = !f_pass1;
+                        f_pass1 = true;
 
                     } else {
                         /**Jugador 2**/
-                        f_pass2 = !f_pass2;
+                        f_pass2 = true;
                     }
 
                 } else if(palabra == "2"){
                     /**Cambiar atril**/
-                    if(!f_turno){
+                    if(f_turno){
                         /**Jugador 1**/
                         Nodo_ficha* temp;
                         int i = 0;
@@ -203,7 +215,7 @@ void scrabble() {
                             atril1->insertar(fichas->desencolar());
                             i++;
                         }
-
+                        f_pass1 = false;
                     } else {
                         /**Jugador 2**/
                         Nodo_ficha* temp;
@@ -215,6 +227,7 @@ void scrabble() {
                             atril2->insertar(fichas->desencolar());
                             i++;
                         }
+                        f_pass2 = false;
                     }
                 }else {
                     /**Comando no valido**/
@@ -222,12 +235,58 @@ void scrabble() {
                 }
                 break;
             default:
-                /**Validar palabra**/
-                if(!f_turno){
-                    /**Jugador 1**/
+                if(palabra.size() < 8){
+                    bool tempFlag = true;
+                    f_palabra = true;
+                     /**Validar palabra**/
+                    if(f_turno){
+                        /**Jugador 1**/
+                        puntos_j1++;
+                        /**Validar Palabra**/
+                        strcpy(tempPalabra, palabra.c_str());
+                        for(int i; i < 7; i++){
+                            if(tempPalabra[i] != NULL || tempPalabra[i] != '0'){
+                                if(!atril1.buscar(toupper(tempPalabra[i])))
+                                    f_palabra = false;
+                            }
+                        }
+                        /**Solicitar Coordenada y posicion a insertar**/
+                        do{
+                            cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                            cout << "\t|%%| Insertar Coordenada [1-" << to_string(dimension_tablero) << "]" << endl;
+                            cout << "\t|%%| X > ";
+                            cin >> columna;
+                            cout << "\t|%%| Y > ";
+                            cin >> fila;
+                            cout << "\t|%%| Posicion: 0) Horizontal, 1) Vertical\n\t|%%| >";
+                            cin >> posicion;
+
+                            if(columna <= dimension_tablero && fila <= dimension_tablero && posicion <= 1)
+                                tempFlag = false;
+                        } while(tempFlag);
+
+                        /**Validar que no se salga de los limites la palabra**/
+                        if(posicion == 1){
+                            /**Validamos Verticalmente**/
+                        } else {
+                            /**Validamos horizontalmente**/
+                        }
+                        f_pass1 = false;
+                    } else {
+                        /**Jugador 2**/
+                        puntos_j2++;
+                        /**Validar Palabra**/
+
+                        f_pass2 = false;
+                    }
                 } else {
-                    /**Jugador 2**/
+                    /**Comando muy larga**/
+                    cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                    cout << "\t|%%| ** Palabra muy grande, tiene que ser menor a 8 letras |%%|" << endl;
+                    cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                    f_turno = !f_turno;
                 }
+                system("pause");
                 break;
         }
         /**Validar doble Pass**/
@@ -669,7 +728,7 @@ int main()
     } while(flag);
 
     /**Prueba de la matriz**/
-
+    /**
     if(tablero->agregar(8,5,'O'))
         cout << "\t| Agregado..." << endl;
     if(tablero->agregar(9,5,'S'))
@@ -691,7 +750,7 @@ int main()
 
     cout <<"\n" << tablero->getGraphviz() << endl;
 
-    return 0;
+    return 0;**/
 }
 
 /**

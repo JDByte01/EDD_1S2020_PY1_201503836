@@ -58,6 +58,25 @@ void Lista_fichas::eliminar(Nodo_ficha* n){
     }
 }
 
+bool Lista_fichas::buscar(char l){
+    if(!estaVacio()){
+        Nodo_ficha* temp = this->inicio;
+        bool f = true;
+        while(temp->getSiguiente() != NULL && f){
+            if(temp->getLetra() == l){
+                f = false;
+            } else {
+                temp = temp->getSiguiente();
+            }
+        }
+        if(temp->getLetra() == l){
+            return true;
+        } else {
+            return false;
+        }
+    }
+}
+
 void Lista_fichas::vaciar(){
     if(!estaVacio()){
          delete this->inicio;
