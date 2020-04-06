@@ -3,6 +3,8 @@
 #include <string.h>
 #include <iostream>
 #include <stdlib.h>
+#include <stdio.h>
+#include <ctype.h>
 
 #include <Lista_diccionario.h>
 #include <Nodo_palabra.h>
@@ -245,8 +247,8 @@ void scrabble() {
                         /**Validar Palabra**/
                         strcpy(tempPalabra, palabra.c_str());
                         for(int i; i < 7; i++){
-                            if(tempPalabra[i] != NULL || tempPalabra[i] != '0'){
-                                if(!atril1.buscar(toupper(tempPalabra[i])))
+                            if(tempPalabra[i] != '0'){
+                                if(!atril1->buscar(toupper(tempPalabra[i])))
                                     f_palabra = false;
                             }
                         }
@@ -271,7 +273,7 @@ void scrabble() {
                             if(palabra.size() + fila <= dimension_tablero){
 
                             } else {
-                                ...sdfsdfsds
+                                //...sdfsdfsds
                             }
                         } else {
                             /**Validamos horizontalmente**/
@@ -633,41 +635,45 @@ void reportes(){
                 /**ARBOL BINARIO DE BUSQUEDA**/
                 f->crearArchivo("ArbolUsuarios", "dot", defaultPath, usuarios->getGraphviz("Tree"));
                 f->crearGrafo("ArbolUsuarios", defaultPath);
+                /**ABB - INORDEN**/
+                f->crearArchivo("ABB_Inorden", "dot", defaultPath, usuarios->getGraphviz("InOrder"));
+                f->crearGrafo("ABB_Inorden", defaultPath);
+                /**ABB - PREORDEN**/
+                f->crearArchivo("ABB_Preorden", "dot", defaultPath, usuarios->getGraphviz("PreOrder"));
+                f->crearGrafo("ABB_Preorden", defaultPath);
+                /**ABB - POSTORDEN**/
+                f->crearArchivo("ABB_Postorden", "dot", defaultPath, usuarios->getGraphviz("PosOrder"));
+                f->crearGrafo("ABB_Postorden", defaultPath);
                 break;
             case '4':
-                /**ABB - PREORDEN**/
-                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
-                f->crearGrafo("ListaDobleCircular", defaultPath);
+                /**HISTORIAL DE PUNTOS X JUGADOR
+                string tempUserABB = "";
+                usuarios->imprimir();
+                cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                cout << "\t|%%|  Escribir Nickname a escoger  |%%|" << endl;
+                cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                cout << "\t| > ";
+                cin >> tempUserABB;
+                Nodo_usuario* tempUser = usuarios->buscar(tempUserABB);
+                **/
+                f->crearArchivo("Score_1" , "dot", defaultPath, jugador1->getLista()->getGraphviz("Jugador 1"));
+                f->crearGrafo("Score_1", defaultPath);
                 break;
             case '5':
-                /**ABB - INORDEN**/
-                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
-                f->crearGrafo("ListaDobleCircular", defaultPath);
+                /**SCOREBOARD**/
+                usuarios->getScoreBoard(scoreboard);
+                f->crearArchivo("Scoreboard", "dot", defaultPath, scoreboard->getGraphviz());
+                f->crearGrafo("Scoreboard", defaultPath);
                 break;
             case '6':
-                /**ABB - POSTORDEN**/
-                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
-                f->crearGrafo("ListaDobleCircular", defaultPath);
+                /**FICHAS DISPONIBLE J1**/
+                f->crearArchivo("Atril_1", "dot", defaultPath, atril1->getGraphviz(jugador1->getNickname()));
+                f->crearGrafo("Atril_1", defaultPath);
                 break;
             case '7':
-                /**HISTORIAL DE PUNTOS X JUGADOR**/
-                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
-                f->crearGrafo("ListaDobleCircular", defaultPath);
-                break;
-            case '8':
-                /**SCOREBOARD**/
-                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
-                f->crearGrafo("ListaDobleCircular", defaultPath);
-                break;
-            case '9':
-                /**FICHAS DISPONIBLE J1**/
-                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
-                f->crearGrafo("ListaDobleCircular", defaultPath);
-                break;
-            case '10':
                 /**FICHAS DISPONIBLES J2**/
-                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
-                f->crearGrafo("ListaDobleCircular", defaultPath);
+                f->crearArchivo("Atril_2", "dot", defaultPath, atril1->getGraphviz(jugador2->getNickname()));
+                f->crearGrafo("Atril_2", defaultPath);
                 break;
             case '0':
                 r_flag = false;

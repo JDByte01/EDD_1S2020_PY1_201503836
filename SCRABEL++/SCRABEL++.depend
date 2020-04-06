@@ -7,11 +7,13 @@
 	<string.h>
 	<iostream>
 
-1586143092 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
+1586154620 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
 	<iostream>
 	<string.h>
 	<iostream>
 	<stdlib.h>
+	<stdio.h>
+	<ctype.h>
 	<Lista_diccionario.h>
 	<Nodo_palabra.h>
 	<Archivo.h>
@@ -88,10 +90,10 @@
 1586036031 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\arbol_usuarios.cpp
 	"Arbol_usuarios.h"
 
-1586146260 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_fichas.cpp
+1586150305 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_fichas.cpp
 	"Lista_fichas.h"
 
-1586146257 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_fichas.h
+1586149880 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_fichas.h
 	<string.h>
 	<iostream>
 	<Nodo_ficha.h>
