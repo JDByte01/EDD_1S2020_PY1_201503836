@@ -15,8 +15,14 @@ Cola_fichas::~Cola_fichas()
 void Cola_fichas::encolar(Nodo_ficha* n){
     if(!estaVacio()){
         Nodo_ficha* temp = this->inicio;
-        this->inicio = n;
-        n->setSiguiente(temp);
+        while(temp->getSiguiente() != NULL){
+            temp = temp->getSiguiente();
+        }
+        temp->setSiguiente(n);
+        n->setAnterior(temp);
+
+        //this->inicio = n;
+        //n->setSiguiente(temp);
     } else {
         this->inicio = n;
     }

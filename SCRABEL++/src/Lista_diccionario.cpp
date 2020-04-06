@@ -74,24 +74,24 @@ void Lista_diccionario::eliminar(Nodo_palabra* n){
 void Lista_diccionario::imprimirForward(){
     if(!estaVacio()){
         Nodo_palabra* tmp = this->inicio;
-        cout << "\t|";
+         cout << "\t| Lista de palabras\n";
         while(tmp->getSiguiente() != this->inicio){
-            cout << tmp->imprimir();
+            cout << "\t| - " << tmp->imprimir() << endl;
             tmp = tmp->getSiguiente();
         }
-        cout << tmp->imprimir() << endl;
+        cout << "\t| - " << tmp->imprimir() << endl;
     }
 }
 
 void Lista_diccionario::imprimirBackward(){
     if(!estaVacio()){
         Nodo_palabra* tmp = this->inicio->getAnterior();
-        cout << "\t|";
+        cout << "\t| Lista de palabras\n";
         while(tmp != this->inicio){
-            cout << tmp->imprimir();
+            cout << "\t| - " << tmp->imprimir() << endl;
             tmp = tmp->getAnterior();
         }
-        cout << tmp->imprimir() << endl;
+        cout << "\t| - " << tmp->imprimir() << endl;
     }
 }
 

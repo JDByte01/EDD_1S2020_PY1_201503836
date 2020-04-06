@@ -18,6 +18,7 @@
 #include <Nodo_ficha.h>
 #include <Cola_fichas.h>
 #include <Lista_fichas.h>
+#include <Lista_coordenadas.h>
 
 #include "rapidjson/document.h"
 
@@ -54,6 +55,8 @@ Arbol_usuarios* usuarios;
 Lista_score* scoreboard;
 Cola_fichas* fichas;
 Matriz_tablero* tablero;
+Lista_coordenadas* puntosDobles;
+Lista_coordenadas* puntosTriples;
 
 Nodo_usuario* jugador1 = new Nodo_usuario();
 int puntos_j1 = 0;
@@ -120,7 +123,7 @@ void scrabble() {
 
     temp = NULL;
 
-    if(puntos_j1 > puntos_j2){
+    if(puntos_j1 >= puntos_j2){
         f_turno = true;
     }
     puntos_j1 = 0;
@@ -191,11 +194,31 @@ void scrabble() {
                     /**Cambiar atril**/
                     if(!f_turno){
                         /**Jugador 1**/
+                        Nodo_ficha* temp;
+                        int i = 0;
+                        while(fichas->enCola() > 0 && i <= 7){
+                            temp = atril1->getInicio();
+                            fichas->encolar(new Nodo_ficha(temp->getPuntos(),temp->getLetra()));
+                            atril1->eliminar(temp);
+                            atril1->insertar(fichas->desencolar());
+                            i++;
+                        }
+
                     } else {
                         /**Jugador 2**/
+                        Nodo_ficha* temp;
+                        int i = 0;
+                        while(fichas->enCola() > 0 && i <= 7){
+                            temp = atril2->getInicio();
+                            fichas->encolar(new Nodo_ficha(temp->getPuntos(),temp->getLetra()));
+                            atril2->eliminar(temp);
+                            atril2->insertar(fichas->desencolar());
+                            i++;
+                        }
                     }
                 }else {
                     /**Comando no valido**/
+                    f_turno = !f_turno;
                 }
                 break;
             default:
@@ -287,6 +310,13 @@ void escojerJugador(){
         if(f_jugador1 && f_jugador2){
             /**Empezar a jugar**/
             f_play = true;
+            tablero->vaciar();
+            fichas->vaciar();
+            atril1->vaciar();
+            atril2->vaciar();
+            puntos_j1 = 0;
+            puntos_j2 = 0;
+
             scrabble();
         } else {
             /**Solicitar usuarios para jugar**/
@@ -390,6 +420,37 @@ void configuracion(){
     //Leer archivo JSON
     //Insertar datos en lista doble diccionario
     diccionario->vaciarLista();
+    puntosDobles->vaciar();
+    puntosTriples->vaciar();
+
+    puntosDobles->agregar(1,5);
+    puntosDobles->agregar(4,5);
+    puntosDobles->agregar(5,6);
+    puntosDobles->agregar(2,5);
+    puntosDobles->agregar(3,5);
+    puntosDobles->agregar(5,5);
+    puntosDobles->agregar(17,7);
+    puntosDobles->agregar(10,10);
+    puntosDobles->agregar(9,3);
+    puntosDobles->agregar(8,2);
+    puntosDobles->agregar(12,8);
+    puntosDobles->agregar(12,9);
+    puntosDobles->agregar(13,10);
+    puntosDobles->agregar(14,19);
+
+    puntosTriples->agregar(1,1);
+    puntosTriples->agregar(2,1);
+    puntosTriples->agregar(1,2);
+    puntosTriples->agregar(1,19);
+    puntosTriples->agregar(1,20);
+    puntosTriples->agregar(2,20);
+    puntosTriples->agregar(19,1);
+    puntosTriples->agregar(20,1);
+    puntosTriples->agregar(20,2);
+    puntosTriples->agregar(19,20);
+    puntosTriples->agregar(20,19);
+    puntosTriples->agregar(20,20);
+
     dimension_tablero = 20;
 
     diccionario->insertar(new Nodo_palabra("Hola"));
@@ -417,6 +478,11 @@ void configuracion(){
     diccionario->insertar(new Nodo_palabra("caña"));
 
     cout << "\t| Datos ingresados correctamente" << endl;
+    diccionario->imprimirForward();
+    cout << "\t| Coordenadas puntos dobles" << endl;
+    puntosDobles->imprimir();
+    cout << "\t| Coordenadas puntos triples" << endl;
+    puntosTriples->imprimir();
     system("pause");
 }
 
@@ -425,15 +491,11 @@ void juego(){
      ** Nuevo juego
      ** Se reinician variables
      **/
-    fichas->vaciar();
+
     jugador1 = new Nodo_usuario();
     jugador2 = new Nodo_usuario();
     f_jugador1 = false;
     f_jugador2 = false;
-    puntos_j1 = 0;
-    puntos_j2 = 0;
-    atril1->vaciar();
-    atril2->vaciar();
 
     do{
         system("cls");
@@ -473,16 +535,16 @@ void reportes(){
         cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
         cout << "\t|%%%%%%%%|      Reportes     |%%%%%%%%|" << endl;
         cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-        cout << "\t|%%| 01 - Diccionario              |%%|" << endl;
-        cout << "\t|%%| 02 - Fichas disponible        |%%|" << endl;
-        cout << "\t|%%| 03 - Arbol binario (ABB)      |%%|" << endl;
-        cout << "\t|%%| 04 - ABB - recorrido preorden |%%|" << endl;
-        cout << "\t|%%| 05 - ABB - recorrido inorden  |%%|" << endl;
-        cout << "\t|%%| 06 - ABB - recorrido postorden|%%|" << endl;
-        cout << "\t|%%| 07 - Historial de puntos (J)  |%%|" << endl;
-        cout << "\t|%%| 08 - Scoreboard               |%%|" << endl;
-        cout << "\t|%%| 09 - Fichas disponible (J1)   |%%|" << endl;
-        cout << "\t|%%| 10 - Fichas disponible (J2)   |%%|" << endl;
+        cout << "\t|%%| 1 - Diccionario               |%%|" << endl;
+        cout << "\t|%%| 2 - Fichas disponible         |%%|" << endl;
+        cout << "\t|%%| 3 - Arbol binario (ABB)       |%%|" << endl;
+        cout << "\t|%%| 4 - ABB - recorrido preorden  |%%|" << endl;
+        cout << "\t|%%| 5 - ABB - recorrido inorden   |%%|" << endl;
+        cout << "\t|%%| 6 - ABB - recorrido postorden |%%|" << endl;
+        cout << "\t|%%| 4 - Historial de puntos (J)   |%%|" << endl;
+        cout << "\t|%%| 5 - Scoreboard                |%%|" << endl;
+        cout << "\t|%%| 6 - Fichas disponible (J1)    |%%|" << endl;
+        cout << "\t|%%| 7 - Fichas disponible (J2)    |%%|" << endl;
         cout << "\t|%%| ----------------------------- |%%|" << endl;
         cout << "\t|%%| 0 - Regresar a menu           |%%|" << endl;
         cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
@@ -560,6 +622,9 @@ int main()
     fichas = new Cola_fichas();
     atril1 = new Lista_fichas();
     atril2 = new Lista_fichas();
+    tablero = new Matriz_tablero();
+    puntosDobles = new Lista_coordenadas();
+    puntosTriples = new Lista_coordenadas();
 
     do{
         system("cls");
@@ -604,7 +669,7 @@ int main()
     } while(flag);
 
     /**Prueba de la matriz**/
-    tablero = new Matriz_tablero();
+
     if(tablero->agregar(8,5,'O'))
         cout << "\t| Agregado..." << endl;
     if(tablero->agregar(9,5,'S'))

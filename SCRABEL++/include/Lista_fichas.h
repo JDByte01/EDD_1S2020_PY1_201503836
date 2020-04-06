@@ -16,6 +16,7 @@ class Lista_fichas
         //Otros
         void insertar(Nodo_ficha* n);
         void eliminar(Nodo_ficha* n);
+        Nodo_ficha* getInicio(){ return this->inicio; }
         bool estaVacio(){ return this->inicio == NULL; }
         void imprimir();
         void vaciar();

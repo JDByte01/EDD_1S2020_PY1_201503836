@@ -18,6 +18,7 @@ class Matriz_tablero
         void agregaEjeX(int x);
         void agregarEjeY(int y);
         bool insertarNodo(int x, int y, char l);
+        void vaciar();
 
         string getGraphviz();
 

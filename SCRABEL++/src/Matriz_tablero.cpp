@@ -170,6 +170,12 @@ bool Matriz_tablero::insertarNodo(int x, int y, char l){
     return flag;
 }
 
+void Matriz_tablero::vaciar(){
+    if(this->headers != NULL){
+        delete this->headers;
+    }
+}
+
 string Matriz_tablero::getGraphviz(){
     string g1 = "digraph Sparce_Matrix {\nnode [shape=box]\nMT[ label = \"SCRABBLE++\", width = 1.5, style = filled, group = 0 ];\n";
     string tempN = "";

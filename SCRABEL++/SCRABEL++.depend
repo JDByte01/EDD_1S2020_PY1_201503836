@@ -7,7 +7,7 @@
 	<string.h>
 	<iostream>
 
-1586122772 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
+1586143092 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\main.cpp
 	<iostream>
 	<string.h>
 	<iostream>
@@ -23,6 +23,8 @@
 	<Nodo_ficha.h>
 	<Cola_fichas.h>
 	<Lista_fichas.h>
+	<Lista_coordenadas.h>
+	"rapidjson/document.h"
 
 1585623376 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_diccionario.h
 	<Nodo_palabra.h>
@@ -43,7 +45,7 @@
 	<string.h>
 	<iostream>
 
-1585645367 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_diccionario.cpp
+1586142945 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_diccionario.cpp
 	"Lista_diccionario.h"
 
 1586000223 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\archivo.cpp
@@ -124,4 +126,136 @@
 	<string.h>
 	<iostream>
 	<Nodo_matriz.h>
+
+1586143198 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\lista_coordenadas.cpp
+	"Lista_coordenadas.h"
+
+1586142232 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\lista_coordenadas.h
+	<string.h>
+	<iostream>
+	<Nodo_coordenada.h>
+
+1586143075 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\include\nodo_coordenada.h
+	<string.h>
+	<iostream>
+
+1586143051 source:c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\src\nodo_coordenada.cpp
+	"Nodo_coordenada.h"
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\document.h
+	"reader.h"
+	"internal/meta.h"
+	"internal/strfunc.h"
+	"memorystream.h"
+	"encodedstream.h"
+	<new>
+	<limits>
+	<compare>
+	<iterator>
+	<utility>
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\reader.h
+	"allocators.h"
+	"stream.h"
+	"encodedstream.h"
+	"internal/clzll.h"
+	"internal/meta.h"
+	"internal/stack.h"
+	"internal/strtod.h"
+	<limits>
+	<intrin.h>
+	<nmmintrin.h>
+	<emmintrin.h>
+	<arm_neon.h>
+	<stdexcept>
+	"rapidjson/error/error.h"
+	"rapidjson/reader.h"
+	"error/error.h"
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\allocators.h
+	"rapidjson.h"
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\rapidjson.h
+	<cstdlib>
+	<cstring>
+	"rapidjson/..."
+	<string>
+	"msinttypes/stdint.h"
+	"msinttypes/inttypes.h"
+	<stdint.h>
+	<inttypes.h>
+	<endian.h>
+	"rapidjson/..."
+	<cassert>
+	<cassert>
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\msinttypes\stdint.h
+	<stdint.h>
+	<limits.h>
+	<wchar.h>
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\msinttypes\inttypes.h
+	"stdint.h"
+	<inttypes.h>
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\stream.h
+	"rapidjson.h"
+	"encodings.h"
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\encodings.h
+	"rapidjson.h"
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\encodedstream.h
+	"stream.h"
+	"memorystream.h"
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\memorystream.h
+	"stream.h"
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\internal\clzll.h
+	"../rapidjson.h"
+	<intrin.h>
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\internal\meta.h
+	"../rapidjson.h"
+	<type_traits>
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\internal\stack.h
+	"../allocators.h"
+	"swap.h"
+	<cstddef>
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\internal\swap.h
+	"../rapidjson.h"
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\internal\strtod.h
+	"ieee754.h"
+	"biginteger.h"
+	"diyfp.h"
+	"pow10.h"
+	<climits>
+	<limits>
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\internal\ieee754.h
+	"../rapidjson.h"
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\internal\biginteger.h
+	"../rapidjson.h"
+	<intrin.h>
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\internal\diyfp.h
+	"../rapidjson.h"
+	"clzll.h"
+	<limits>
+	<intrin.h>
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\internal\pow10.h
+	"../rapidjson.h"
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\error\error.h
+	"../rapidjson.h"
+
+1585531796 c:\users\josed\documents\usac\edd\2020\edd_1s2020_py1_201503836\scrabel++\rapidjson\internal\strfunc.h
+	"../stream.h"
+	<cwchar>
 
