@@ -268,9 +268,15 @@ void scrabble() {
                         /**Validar que no se salga de los limites la palabra**/
                         if(posicion == 1){
                             /**Validamos Verticalmente**/
+                            if(palabra.size() + fila <= dimension_tablero){
+
+                            } else {
+                                ...sdfsdfsds
+                            }
                         } else {
                             /**Validamos horizontalmente**/
                         }
+
                         f_pass1 = false;
                     } else {
                         /**Jugador 2**/
@@ -597,9 +603,9 @@ void reportes(){
         cout << "\t|%%| 1 - Diccionario               |%%|" << endl;
         cout << "\t|%%| 2 - Fichas disponible         |%%|" << endl;
         cout << "\t|%%| 3 - Arbol binario (ABB)       |%%|" << endl;
-        cout << "\t|%%| 4 - ABB - recorrido preorden  |%%|" << endl;
-        cout << "\t|%%| 5 - ABB - recorrido inorden   |%%|" << endl;
-        cout << "\t|%%| 6 - ABB - recorrido postorden |%%|" << endl;
+        cout << "\t|%%|   - ABB - recorrido preorden  |%%|" << endl;
+        cout << "\t|%%|   - ABB - recorrido inorden   |%%|" << endl;
+        cout << "\t|%%|   - ABB - recorrido postorden |%%|" << endl;
         cout << "\t|%%| 4 - Historial de puntos (J)   |%%|" << endl;
         cout << "\t|%%| 5 - Scoreboard                |%%|" << endl;
         cout << "\t|%%| 6 - Fichas disponible (J1)    |%%|" << endl;
@@ -620,13 +626,13 @@ void reportes(){
                 break;
             case '2':
                 /**COLA DE FICHAS**/
-                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
-                f->crearGrafo("ListaDobleCircular", defaultPath);
+                f->crearArchivo("ColaFichas", "dot", defaultPath, fichas->getGraphviz());
+                f->crearGrafo("ColaFichas", defaultPath);
                 break;
             case '3':
                 /**ARBOL BINARIO DE BUSQUEDA**/
-                f->crearArchivo("ListaDobleCircular", "dot", defaultPath, diccionario->getGraphviz());
-                f->crearGrafo("ListaDobleCircular", defaultPath);
+                f->crearArchivo("ArbolUsuarios", "dot", defaultPath, usuarios->getGraphviz("Tree"));
+                f->crearGrafo("ArbolUsuarios", defaultPath);
                 break;
             case '4':
                 /**ABB - PREORDEN**/
