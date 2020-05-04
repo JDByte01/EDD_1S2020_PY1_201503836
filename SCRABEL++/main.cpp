@@ -68,7 +68,35 @@ int puntos_j2 = 0;
 Lista_fichas* atril2 = NULL;
 
 Archivo* f = new Archivo();
+//===========================================
+// Validar Palabras
 
+bool validarSize(string txt){
+    return txt.size() <= 7;
+}
+
+bool validarPalabra(string txt){
+    /**Validar Palabra**/
+    bool flag = true;
+    char tempPalabra[8];
+
+    strcpy(tempPalabra, txt.c_str());
+    for(int i = 0; i < 7; i++){
+        cout << "[" << tempPalabra[i] << "]";
+    }
+    cout << endl;
+    /*
+    strcpy(tempPalabra, txt.c_str());
+    for(int i; i < 7; i++){
+        cout << tempPalabra[i];
+        if(tempPalabra[i] != '0'){
+
+            if(!atril1->buscar(toupper(tempPalabra[i])))
+                flag = false;
+        }
+    }*/
+    return flag;
+}
 //============================================
 int getRandom(){
     int r = 0;
@@ -237,46 +265,42 @@ void scrabble() {
                 }
                 break;
             default:
-                if(palabra.size() < 8){
+                /**Validación de juego**/
+                if(validarSize(palabra)){
                     bool tempFlag = true;
                     f_palabra = true;
                      /**Validar palabra**/
                     if(f_turno){
                         /**Jugador 1**/
                         puntos_j1++;
-                        /**Validar Palabra**/
-                        strcpy(tempPalabra, palabra.c_str());
-                        for(int i; i < 7; i++){
-                            if(tempPalabra[i] != '0'){
-                                if(!atril1->buscar(toupper(tempPalabra[i])))
-                                    f_palabra = false;
-                            }
-                        }
-                        /**Solicitar Coordenada y posicion a insertar**/
-                        do{
-                            cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
-                            cout << "\t|%%| Insertar Coordenada [1-" << to_string(dimension_tablero) << "]" << endl;
-                            cout << "\t|%%| X > ";
-                            cin >> columna;
-                            cout << "\t|%%| Y > ";
-                            cin >> fila;
-                            cout << "\t|%%| Posicion: 0) Horizontal, 1) Vertical\n\t|%%| >";
-                            cin >> posicion;
+                        cout << "**Turno Jugador 1" << endl;
+                        if(validarPalabra(palabra)){
+                             /**Solicitar Coordenada y posicion a insertar**/
+                            do{
+                                cout << "\t|%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%|" << endl;
+                                cout << "\t|%%| Insertar Coordenada [1-" << to_string(dimension_tablero) << "]" << endl;
+                                cout << "\t|%%| X > ";
+                                cin >> columna;
+                                cout << "\t|%%| Y > ";
+                                cin >> fila;
+                                cout << "\t|%%| Posicion: 0) Horizontal, 1) Vertical\n\t|%%| >";
+                                cin >> posicion;
 
-                            if(columna <= dimension_tablero && fila <= dimension_tablero && posicion <= 1)
-                                tempFlag = false;
-                        } while(tempFlag);
+                                if(columna <= dimension_tablero && fila <= dimension_tablero && posicion <= 1)
+                                    tempFlag = false;
+                            } while(tempFlag);
 
-                        /**Validar que no se salga de los limites la palabra**/
-                        if(posicion == 1){
-                            /**Validamos Verticalmente**/
-                            if(palabra.size() + fila <= dimension_tablero){
+                            /**Validar que no se salga de los limites la palabra**/
+                            if(posicion == 1){
+                                /**Validamos Verticalmente**/
+                                if(palabra.size() + fila <= dimension_tablero){
 
+                                } else {
+                                    //...sdfsdfsds
+                                }
                             } else {
-                                //...sdfsdfsds
+                                /**Validamos horizontalmente**/
                             }
-                        } else {
-                            /**Validamos horizontalmente**/
                         }
 
                         f_pass1 = false;
